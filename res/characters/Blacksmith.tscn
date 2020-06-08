@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://res/characters/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://res/characters/Blacksmith.gd" type="Script" id=2]
+[ext_resource path="res://res/characters/blacksmith_small.png" type="Texture" id=3]
+
+[node name="Blacksmith" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( -2.84217e-14, 64 )
+scale = Vector2( 0.375, 0.360215 )
+texture = ExtResource( 3 )

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://2d_motion.gd" type="Script" id=1]
+[ext_resource path="res://res/characters/character1_maud_small_face.png" type="Texture" id=2]
+
+[node name="Player - KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+offset = Vector2( 0, 64 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, 64 )
+polygon = PoolVector2Array( -8.94893, 21.4317, -7.78751, 29.1744, 4.91063, 29.3293, 6.07204, 21.1219, 5.68491, 8.11409, -8, 8 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 15.9997, 45.3337 )
+current = true
+__meta__ = {
+"_edit_lock_": true
+}

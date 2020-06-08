@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://bunnies.gd" type="Script" id=1]
+[ext_resource path="res://res/props/props_bunnies_zoe_small.png" type="Texture" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 17.306, 0.837388, -17.306, -0.837388, -32, -24, 0, 0, 0, 0, -72, 0, 19.2599, 1.11652, -19.2599, -1.11652, -104, -16, 0, 0, 0, 0, -152, 0, 21.7721, 0, -21.7721, 0, -192, -24, 0, 0, 0, 0, -232, 0 )
+}
+
+[node name="bunny" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotation = -6.28319
+rotate = false
+
+[node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
+rotation = -6.28319
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )

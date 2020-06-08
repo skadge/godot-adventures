@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://res/characters/snowcat_small.png" type="Texture" id=1]
+[ext_resource path="res://res/characters/Snowcat.gd" type="Script" id=2]
+[ext_resource path="res://res/characters/snowcat_player_small.png" type="Texture" id=3]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, -9.71933, -6.69554, 9.71933, 6.69554, 48, 0, 9.50334, -0.215985, -9.50334, 0.215985, 8, 8, 0.647955, 7.77546, -0.647955, -7.77546, -40, 8, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 8 )
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -8, 0, 41.9976, 27.5029, -41.9976, -27.5029, -88, -36, 39.7677, 4.45992, -39.7677, -4.45992, -168, -92, 3.7166, -33.8211, -3.7166, 33.8211, -258.667, -52, -0.743321, -29.3612, 0.743321, 29.3612, -184, 64, 25.6446, -11.8931, -25.6446, 11.8931, -232, 116, -45.3426, -17.468, 45.3426, 17.468, -240, 174.667, 0, 0, 0, 0, -104, 201.333, 0, 0, 0, 0, -10.6667, 222.667, -20.4413, -25.2729, 20.4413, 25.2729, 66.6667, 260, 0, 0, 0, 0, 82.6667, 329.333, 24.9012, -8.91985, -24.9012, 8.91985, 64, 366.667, 47.5725, 7.06155, -47.5725, -7.06155, -64, 342.667, 0, 0, 0, 0, -162.667, 353.333, 0, 0, 0, 0, -269.333, 406.667, 51.6608, -31.5911, -51.6608, 31.5911, -410.667, 462.667, 31.9628, -24.1579, -31.9628, 24.1579, -520, 574.667, -4.45992, -14.1231, 4.45992, 14.1231, -632, 689.333, 0, 0, 0, 0, -525.333, 782.667, -14.1231, -17.0964, 14.1231, 17.0964, -456, 836, 0, 0, 0, 0, -440, 884 )
+}
+
+[node name="Snowcat" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="PathIdle" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathIdle"]
+rotation = -0.0811728
+offset = 183.356
+rotate = false
+
+[node name="Area2D" type="Area2D" parent="PathIdle/PathFollow2D"]
+
+[node name="Sprite" type="Sprite" parent="PathIdle/PathFollow2D/Area2D"]
+position = Vector2( 0, -16 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathIdle/PathFollow2D/Area2D"]
+position = Vector2( 0, -24 )
+shape = SubResource( 1 )
+
+[node name="PathVillage" type="Path2D" parent="."]
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathVillage"]
+position = Vector2( -8, 0 )
+rotation = -2.89009
+rotate = false
+
+[node name="Sprite" type="Sprite" parent="PathVillage/PathFollow2D"]
+position = Vector2( 3.98168, 15.4967 )
+rotation = -3.2306
+scale = Vector2( 0.66, 0.66 )
+texture = ExtResource( 3 )
+flip_h = true

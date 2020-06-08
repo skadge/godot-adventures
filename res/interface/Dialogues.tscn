@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://res/interface/theme/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://res/interface/box.png" type="Texture" id=2]
+[ext_resource path="res://res/characters/aeronaut_small.png" type="Texture" id=3]
+[ext_resource path="res://res/interface/Dialogues.gd" type="Script" id=4]
+
+[node name="Dialogues" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -304.0
+margin_top = -200.0
+margin_right = 312.0
+margin_bottom = -64.0
+texture = ExtResource( 2 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterIcon" type="TextureRect" parent="Box"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 24.0
+margin_top = -84.0
+margin_right = 176.0
+margin_bottom = 81.0
+texture = ExtResource( 3 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Box"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -464.0
+margin_top = -60.0
+margin_right = -16.0
+margin_bottom = 60.0
+theme = ExtResource( 1 )
+text = "Hello! I'm the aeronaut"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="HBoxContainer" parent="Box"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -34.0
+margin_top = -23.0
+margin_right = -34.0
+margin_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonYes" type="Button" parent="Box/Buttons"]
+visible = false
+margin_right = 100.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 100, 0 )
+theme = ExtResource( 1 )
+text = "Yes"
+
+[node name="ButtonNo" type="Button" parent="Box/Buttons"]
+visible = false
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 100, 0 )
+theme = ExtResource( 1 )
+text = "No"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ButtonContinue" type="Button" parent="Box/Buttons"]
+visible = false
+margin_right = 102.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 100, 0 )
+theme = ExtResource( 1 )
+text = "Continue"
