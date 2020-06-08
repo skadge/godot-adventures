@@ -1,6 +1,7 @@
 extends "res://res/characters/Character.gd"
 
 var swordSold = false
+var is_first_time = true
 
 signal swordAvailable
 
@@ -20,6 +21,7 @@ func dialogue_stages():
     if not swordSold:
         
         if is_first_time:
+            is_first_time = false
             dialogue.say_many($Sprite, dialogues) 
             yield(dialogue, "conversation_finished")
             

@@ -1,4 +1,5 @@
 extends Node2D
+class_name Character
 
 onready var root = get_tree().root
 onready var dialogue  = root.get_node("Game/DialoguesLayer/Dialogues")
@@ -15,7 +16,7 @@ var dialogues = ["Default dialogue 1.",
 var dialogueDefault = ["How are you today?", 
                        "What a lovely weather!"]
 
-var is_first_time = true
+
 
 var rng = RandomNumberGenerator.new()
 
@@ -35,8 +36,6 @@ func dialogue_stages():
         
         var sentences = dialogues
         
-        if not is_first_time:
-            sentences = dialogues.slice(1, dialogues.size()-1)
             
         dialogue.say_many($Sprite, sentences)
         yield(dialogue, "conversation_finished")
@@ -78,7 +77,6 @@ func _on_Character_body_entered(body):
     
     if body.get_name() == "Player":
         dialogue_stages()
-        is_first_time = false
 
 
 

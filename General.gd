@@ -30,10 +30,10 @@ func _ready():
     $DialoguesLayer/Dialogues.hide()
     #pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#    pass
-
+func _unhandled_input(event):
+    if event is InputEventKey:
+        if event.pressed and event.scancode == KEY_ESCAPE:
+            get_tree().quit()
 
 func _on_Character_body_entered(body):
     pass # Replace with function body.

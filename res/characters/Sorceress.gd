@@ -1,6 +1,7 @@
 extends "res://res/characters/Character.gd"
 
-var snowcatRideDone = true
+var snowcatRideDone = false
+var is_first_time = true
 
 signal ride_to_village
 
@@ -17,6 +18,7 @@ func dialogue_stages():
                 "...the aeronaut...",
                 "He lives at the Lonely Village and sells hot air balloons",
                 "He might be able to help you."]
+            is_first_time = false
 
         sentences += ["The road to Lonely village is dangerous. Lots of monsters!",
                      " "]

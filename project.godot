@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://res/characters/Character.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
 } ]
 _global_script_class_icons={
+"Character": "",
 "GitAPI": ""
 }
 
@@ -22,6 +28,7 @@ _global_script_class_icons={
 
 config/name="Dragons' Eggs Tale"
 run/main_scene="res://Game.tscn"
+config/icon="res://icon.png"
 
 [display]
 

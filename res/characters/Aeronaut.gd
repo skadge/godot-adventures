@@ -2,6 +2,8 @@ extends "res://res/characters/Character.gd"
 
 onready var hotairballoon  = root.get_node("Game/Items/HotAirBalloon")
 
+var is_first_time = true
+
 var balloonSold = false
 
 signal hotAirBalloonAvailable
@@ -22,8 +24,11 @@ func dialogue_stages():
         
         var sentences = dialogues
         
-        if not is_first_time:
+        if is_first_time:
+            is_first_time = false
+        else:
             sentences = dialogues.slice(1, dialogues.size()-1)
+        
             
         dialogue.say_many($Sprite, sentences)
         yield(dialogue, "conversation_finished")

@@ -79,12 +79,32 @@ func get_input():
     velocity = velocity.normalized() * speed
 
 
+func _on_right():
+    velocity.x = 1
+    velocity = velocity.normalized() * speed
+
+func _on_left():
+    velocity.x = -1
+    velocity = velocity.normalized() * speed
+
+func _on_up():
+    velocity.y = -1
+    velocity = velocity.normalized() * speed
+
+func _on_down():
+    velocity.y = 1
+    velocity = velocity.normalized() * speed
+
+func _on_release_direction_btns():
+    velocity = Vector2()
+    
 func _physics_process(delta):
     
     if not active:
         return
-        
-    get_input()
+    
+    if OS.get_name() != "Android":
+        get_input()
     
     if velocity == Vector2(0,0):
         moving = false

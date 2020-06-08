@@ -3,8 +3,41 @@ extends Control
 onready var root = get_tree().root
 onready var player  = root.get_node("Game/Items/Player")
 
+signal up
+signal down
+signal left
+signal right
+signal direction_btns_released
+
+func _on_btn_up():
+    emit_signal("up")
+func _on_btn_down():
+    emit_signal("down")
+func _on_btn_right():
+    emit_signal("right")
+func _on_btn_left():
+    emit_signal("left")
+func _on_btn_released():
+    emit_signal("direction_btns_released")
+    
 # Called when the node enters the scene tree for the first time.
 func _ready():
+    
+    if OS.get_name() == "Android":
+        $DirectionButtons.show()
+        
+        # Forwarding of the direction buttons signals
+        $DirectionButtons/VBoxContainer/LeftBtn.connect("button_down", self, "_on_btn_left")
+        $DirectionButtons/VBoxContainer/LeftBtn.connect("button_up", self, "_on_btn_released")
+        $DirectionButtons/VBoxContainer3/RightBtn.connect("button_down", self, "_on_btn_right")
+        $DirectionButtons/VBoxContainer3/RightBtn.connect("button_up", self, "_on_btn_released")
+        $DirectionButtons/VBoxContainer2/UpBtn.connect("button_down", self, "_on_btn_up")
+        $DirectionButtons/VBoxContainer2/UpBtn.connect("button_up", self, "_on_btn_released")
+        $DirectionButtons/VBoxContainer2/DownBtn.connect("button_down", self, "_on_btn_down")
+        $DirectionButtons/VBoxContainer2/DownBtn.connect("button_up", self, "_on_btn_released")
+    else:
+        $DirectionButtons.hide()
+        
     $Inventory.hide()
     $Inventory/HBox/HotAirBalloonButton.hide()
     $Inventory/HBox/PlayerButton.hide()
