@@ -4,6 +4,11 @@
 [ext_resource path="res://res/interface/heart.png" type="Texture" id=2]
 
 [node name="HealthCounter" instance=ExtResource( 1 )]
+margin_right = 154.0
 
 [node name="Icon" parent="." index="0"]
 texture = ExtResource( 2 )
+
+[node name="Label" parent="." index="1"]
+margin_left = 3.0
+margin_right = 82.0

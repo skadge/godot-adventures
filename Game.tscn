@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://res/props/props_bush_elouan_small.png" type="Texture" id=1]
 [ext_resource path="res://Bunny.tscn" type="PackedScene" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://res/props/trees-sheet.png" type="Texture" id=28]
 [ext_resource path="res://res/props/castle.png" type="Texture" id=29]
 [ext_resource path="res://res/props/flag.png" type="Texture" id=30]
+[ext_resource path="res://res/props/Key.tscn" type="PackedScene" id=31]
+[ext_resource path="res://res/props/Chest.tscn" type="PackedScene" id=32]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 80, 64, 80, 64, 112, 0, 112 )
@@ -531,10 +533,10 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 35/shapes = [  ]
 35/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=16]
+[sub_resource type="ConvexPolygonShape2D" id=15]
 points = PoolVector2Array( -2.1299, 62.5054, -1.12521, 37.0532, 6.24254, 37.723, 6.91234, 61.8356 )
 
-[sub_resource type="TileSet" id=14]
+[sub_resource type="TileSet" id=16]
 0/name = "castle_walls"
 0/texture = ExtResource( 26 )
 0/tex_offset = Vector2( 0, -32 )
@@ -573,24 +575,27 @@ points = PoolVector2Array( -2.1299, 62.5054, -1.12521, 37.0532, 6.24254, 37.723,
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 16 )
+2/shape = SubResource( 15 )
 2/shape_one_way = false
 2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 16 ),
+"shape": SubResource( 15 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 121.43, 38.257 )
 
 [node name="Game" type="Node2D"]
 scale = Vector2( 3, 3 )
 script = ExtResource( 13 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -268.675 ]
+}
 
 [node name="GUILayer" type="CanvasLayer" parent="."]
 
@@ -756,6 +761,37 @@ tile_data = PoolIntArray( -1048555, 33, 0, -1048546, 35, 0, -1048545, 33, 0, -98
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="Keys&Chests" type="Node2D" parent="."]
+position = Vector2( -0.145992, 0.147198 )
+scale = Vector2( 0.25, 0.266662 )
+
+[node name="Key" parent="Keys&Chests" instance=ExtResource( 31 )]
+position = Vector2( 2742.43, 407.783 )
+
+[node name="Key2" parent="Keys&Chests" instance=ExtResource( 31 )]
+position = Vector2( 3133.99, 1770.92 )
+
+[node name="Key3" parent="Keys&Chests" instance=ExtResource( 31 )]
+position = Vector2( 1412.33, 3475.11 )
+
+[node name="Key4" parent="Keys&Chests" instance=ExtResource( 31 )]
+position = Vector2( 3634.53, 5406.52 )
+
+[node name="Chest" parent="Keys&Chests" instance=ExtResource( 32 )]
+position = Vector2( 1092.58, 822.649 )
+
+[node name="Chest2" parent="Keys&Chests" instance=ExtResource( 32 )]
+position = Vector2( 3602.92, 4589.24 )
+
+[node name="Chest5" parent="Keys&Chests" instance=ExtResource( 32 )]
+position = Vector2( 5130.17, 4359.13 )
+
+[node name="Chest3" parent="Keys&Chests" instance=ExtResource( 32 )]
+position = Vector2( 9482.25, 2813.64 )
+
+[node name="Chest4" parent="Keys&Chests" instance=ExtResource( 32 )]
+position = Vector2( 10830.3, 4726.17 )
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -1080,7 +1116,7 @@ format = 1
 tile_data = PoolIntArray( -589778, 30, 0, -589705, 32, 0, -458635, 30, 0, -393205, 13, 0, -393172, 10, 0, -393168, 30, 0, -393102, 32, 0, -393096, 30, 0, -393063, 32, 0, -327643, 13, 0, -262094, 18, 0, -262017, 30, 0, -262003, 32, 0, -262002, 25, 0, -261993, 32, 0, -196563, 11, 0, -196550, 30, 0, -196491, 32, 0, -65542, 12, 0, -65490, 10, 0, -65421, 32, 0, -65417, 30, 0, 65558, 13, 0, 65583, 11, 0, 65662, 30, 0, 131088, 14, 0, 131099, 9, 0, 131120, 11, 0, 131125, 32, 0, 262143, 12, 0, 196612, 9, 0, 196725, 30, 0, 262180, 11, 0, 262192, 11, 0, 262198, 18, 0, 327690, 10, 0, 327730, 11, 0, 327794, 30, 0, 393267, 10, 0, 458785, 14, 0, 458867, 30, 0, 524296, 12, 0, 524338, 11, 0, 589882, 32, 0, 720889, 12, 0, 655381, 10, 0, 655400, 18, 0, 655412, 10, 0, 655476, 30, 0, 720899, 9, 0, 720950, 11, 0, 721021, 32, 0, 786485, 31, 0, 851981, 10, 0, 852020, 11, 0, 917620, 30, 0, 1048575, 11, 0, 983048, 29, 0, 983093, 10, 0, 983097, 32, 0, 983197, 32, 0, 1048602, 9, 0, 1048624, 29, 0, 1048691, 32, 0, 1114126, 18, 0, 1114134, 29, 0, 1114170, 32, 0, 1245183, 18, 0, 1179680, 12, 0, 1179701, 11, 0, 1179817, 32, 0, 1310712, 12, 0, 1245203, 10, 0, 1245301, 32, 0, 1245321, 30, 0, 1310758, 29, 0, 1310773, 10, 0, 1310778, 29, 0, 1310834, 30, 0, 1376266, 10, 0, 1376312, 11, 0, 1376316, 31, 0, 1441910, 30, 0, 1441913, 32, 0, 1507331, 9, 0, 1507384, 10, 0, 1572888, 9, 0, 1572921, 11, 0, 1572980, 32, 0, 1638405, 9, 0, 1638410, 9, 0, 1638450, 29, 0, 1638462, 18, 0, 1703940, 9, 0, 1703953, 11, 0, 1703976, 29, 0, 1704055, 32, 0, 1704056, 30, 0, 1769472, 9, 0, 1769485, 9, 0, 1769507, 11, 0, 1769531, 10, 0, 1769587, 30, 0, 1835010, 9, 0, 1835019, 9, 0, 1835021, 9, 0, 1900635, 29, 0, 1966088, 9, 0, 1966120, 18, 0, 2031634, 9, 0, 2031639, 12, 0, 2031641, 9, 0, 2031644, 18, 0, 2031677, 11, 0, 2162687, 9, 0, 2097156, 9, 0, 2097215, 10, 0, 2097230, 29, 0, 2162740, 18, 0, 2228232, 9, 0, 2228236, 9, 0, 2228240, 9, 0, 2293766, 9, 0, 2293818, 18, 0, 2293824, 11, 0, 2359359, 10, 0, 2424882, 11, 0, 2555957, 10, 0, 2555968, 10, 0, 2621501, 11, 0, 2687031, 10, 0, 2687034, 11, 0, 2949205, 29, 0, 3080212, 29, 0, 3080320, 30, 0, 3080327, 30, 0, 3145861, 32, 0, 3145865, 30, 0, 3145871, 32, 0, 3211312, 29, 0, 3211395, 32, 0, 3211404, 32, 0, 3342469, 30, 0, 3342472, 32, 0, 3342474, 32, 0, 3342477, 32, 0, 3539082, 30, 0, 3735595, 29, 0, 3735681, 29, 0, 3801222, 12, 0, 3801226, 9, 0, 3866747, 14, 0, 3997800, 29, 0, 3997804, 13, 0, 4063346, 29, 0, 4128810, 29, 0, 4128813, 29, 0, 4194344, 29, 0, 4391014, 12, 0, 4391031, 13, 0, 4522113, 12, 0, 4522118, 9, 0, 4849788, 29, 0, 4915308, 24, 0, 5177476, 9, 0, 5243002, 14, 0, 5308519, 12, 0, 5505134, 29, 0 )
 
 [node name="Castle" type="TileMap" parent="Items"]
-tile_set = SubResource( 14 )
+tile_set = SubResource( 16 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( -131041, 0, 0, -131039, 0, 0, -131037, 0, 0, -131035, 0, 0, -131033, 0, 0, -131031, 0, 0, -131029, 0, 0, -131027, 0, 0, -131025, 0, 0, -131023, 0, 0, -131021, 0, 0, -131020, 0, 0, 31, 0, 0, 52, 0, 0, 131103, 0, 0, 131124, 0, 0, 196645, 2, 0, 196655, 2, 0, 262175, 0, 0, 262196, 0, 0, 393247, 0, 0, 393268, 0, 0, 524319, 0, 0, 524321, 0, 0, 524323, 0, 0, 524325, 0, 0, 524330, 0, 0, 524332, 0, 0, 524334, 0, 0, 524336, 0, 0, 524338, 0, 0, 524340, 0, 0, 589863, 1, 0, 655397, 2, 0, 655403, 2, 0 )
@@ -1094,7 +1130,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Castle/Castle"]
 position = Vector2( 0.420914, 142.436 )
-shape = SubResource( 15 )
+shape = SubResource( 17 )
 
 [node name="Mountains" type="TileMap" parent="Items"]
 position = Vector2( 208, 178.667 )
@@ -1154,8 +1190,6 @@ position = Vector2( 1890.67, 1248 )
 
 [node name="Player" parent="Items" instance=ExtResource( 3 )]
 position = Vector2( 44.9153, 128.147 )
-health = 90
-gold = 100
 
 [node name="HotAirBalloon" parent="Items" instance=ExtResource( 16 )]
 position = Vector2( 1496, 1298.67 )
@@ -1184,5 +1218,7 @@ position = Vector2( 1496, 1298.67 )
 [connection signal="dead" from="Items/Player" to="GUILayer/Interface" method="_on_death"]
 [connection signal="gold_increased" from="Items/Player" to="GUILayer/Interface" method="_on_Player_gold_increased"]
 [connection signal="health_changed" from="Items/Player" to="GUILayer/Interface" method="_on_Player_health_changed"]
+[connection signal="keys_tally_updated" from="Items/Player" to="GUILayer/Interface" method="_on_Player_keys_tally_updated"]
+[connection signal="missing_key" from="Items/Player" to="GUILayer/Interface" method="on_msg"]
 
 [editable path="Items/Snowcat"]

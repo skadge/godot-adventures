@@ -4,7 +4,6 @@ onready var root = get_tree().root
 onready var hotAirBalloonButton  = root.get_node("Game/GUILayer/Interface/Inventory/HBox/HotAirBalloonButton")
 onready var playerButton  = root.get_node("Game/GUILayer/Interface/Inventory/HBox/PlayerButton")
 
-
 export (int) var base_speed = 500
 
 var speed = base_speed
@@ -17,6 +16,15 @@ var idling = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+    
+    var interface = root.get_node("Game/GUILayer/Interface")
+    
+    interface.connect("up", self, "_on_up")
+    interface.connect("down", self, "_on_down")
+    interface.connect("left", self, "_on_left")
+    interface.connect("right", self, "_on_right")
+    interface.connect("direction_btns_released", self, "_on_release_direction_btns")
+    
     hotAirBalloonButton.connect("pressed", self, "_activate")
     playerButton.connect("pressed", self, "_deactivate")
     
@@ -70,13 +78,34 @@ func get_input():
         velocity.y -= 1
     velocity = velocity.normalized() * speed
 
+func _on_right():
+    velocity.x = 1
+    velocity = velocity.normalized() * speed
 
+func _on_left():
+    velocity.x = -1
+    velocity = velocity.normalized() * speed
+
+func _on_up():
+    velocity.y = -1
+    velocity = velocity.normalized() * speed
+
+func _on_down():
+    velocity.y = 1
+    velocity = velocity.normalized() * speed
+
+func _on_release_direction_btns():
+    velocity = Vector2()
+    
+    
 func _physics_process(delta):
     
     if not active:
         return
-        
-    get_input()
+    
+    if OS.get_name() != "Android":
+        get_input()
+    
 
     velocity = move_and_slide(velocity)
 

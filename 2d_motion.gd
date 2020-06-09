@@ -21,12 +21,17 @@ export(int) var health = 100
 signal gold_increased
 export(int) var gold = 0
 
+signal keys_tally_updated
+signal missing_key
+export(int) var keys = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
     
     start_position = position
     
+    emit_signal("keys_tally_updated", keys)
     emit_signal("gold_increased", gold)
     emit_signal("health_changed", health)
     
@@ -124,9 +129,21 @@ func _physics_process(delta):
 
     velocity = move_and_slide(velocity)
 
+func collect_key():
+    keys += 1
+    emit_signal("keys_tally_updated", keys)
 
-func collect_gold():
-    gold += 1
+func use_key():
+    if keys >= 1:
+        keys -= 1
+        emit_signal("keys_tally_updated", keys)
+        return true
+    else:
+        emit_signal("missing_key", "[center]You need a key to open this chest![/center]")
+        return false
+
+func collect_gold(nb_gold=1):
+    gold += nb_gold
     emit_signal("gold_increased", gold)
 
 func pay_out(cost):

@@ -51,6 +51,9 @@ func _ready():
 
 func resize_inventory_bg():
     $Inventory.rect_size.x = $Inventory/HBox.rect_size.x + 60
+
+func _on_Player_keys_tally_updated(keys):
+    $KeyCounter/Label.text = str(keys)
     
 func _on_Player_gold_increased(gold):
     $GoldCounter/Label.text = str(gold)
@@ -106,4 +109,8 @@ func _on_death():
         $AnimationPlayer.playback_speed = 0.5
         $AnimationPlayer.play("DisplayMainMsg")
 
+func on_msg(msg):
+        $MainMsg/Label.bbcode_text = msg
+        $AnimationPlayer.playback_speed = 1
+        $AnimationPlayer.play("DisplayMainMsg")
 

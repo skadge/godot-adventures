@@ -28,6 +28,8 @@ _global_script_class_icons={
 
 config/name="Dragons' Eggs Tale"
 run/main_scene="res://Game.tscn"
+boot_splash/image="res://icon.png"
+boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [display]
