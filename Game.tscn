@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://res/props/props_bush_elouan_small.png" type="Texture" id=1]
 [ext_resource path="res://Bunny.tscn" type="PackedScene" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://res/props/flag.png" type="Texture" id=30]
 [ext_resource path="res://res/props/Key.tscn" type="PackedScene" id=31]
 [ext_resource path="res://res/props/Chest.tscn" type="PackedScene" id=32]
+[ext_resource path="res://res/interface/Title screen.tscn" type="PackedScene" id=33]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 80, 64, 80, 64, 112, 0, 112 )
@@ -1195,6 +1196,9 @@ position = Vector2( 44.9153, 128.147 )
 position = Vector2( 1496, 1298.67 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Title screen" parent="." instance=ExtResource( 33 )]
+visible = false
 [connection signal="direction_btns_released" from="GUILayer/Interface" to="Items/Player" method="_on_release_direction_btns"]
 [connection signal="down" from="GUILayer/Interface" to="Items/Player" method="_on_down"]
 [connection signal="left" from="GUILayer/Interface" to="Items/Player" method="_on_left"]

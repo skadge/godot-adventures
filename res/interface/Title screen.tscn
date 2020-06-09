@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://res/interface/theme/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://res/monsters/green_nightmare_small.png" type="Texture" id=2]
+
+[node name="Title screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -382.0
+margin_top = -252.0
+margin_right = 382.0
+margin_bottom = 252.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 357.0
+margin_bottom = 504.0
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_right = 357.0
+margin_bottom = 95.0
+theme = ExtResource( 1 )
+text = "The Green Nightmare"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+margin_left = 361.0
+margin_right = 561.0
+margin_bottom = 504.0
+rect_min_size = Vector2( 200, 0 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
