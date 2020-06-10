@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://2d_motion.gd" type="Script" id=1]
 [ext_resource path="res://res/characters/character1_maud_small_face.png" type="Texture" id=2]
+[ext_resource path="res://res/sounds/steps-grass.ogg" type="AudioStream" id=3]
 
 [node name="Player - KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -20,3 +21,7 @@ current = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="SoundEffects" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true

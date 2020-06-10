@@ -112,10 +112,13 @@ func _physics_process(delta):
         get_input()
     
     if velocity == Vector2(0,0):
+        $SoundEffects.stop()
         moving = false
         return
     
     moving = true
+    if not $SoundEffects.playing:
+        $SoundEffects.play()
         
     var sprite = $Sprite
     if velocity.x > 0:
@@ -171,7 +174,9 @@ func health_change(delta):
 
 func _on_path_entered(body):
     speed = base_speed * 1.5
+    $SoundEffects.stream = load("res://res/sounds/steps-dirt.ogg")
 
 
 func _on_path_exited(body):
     speed = base_speed
+    $SoundEffects.stream = load("res://res/sounds/steps-grass.ogg")
