@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/spiky-monster.ogg-ec05959f40baf5cb646cbc3619685b5d.oggstr"
+
+[deps]
+
+source_file="res://res/sounds/spiky-monster.ogg"
+dest_files=[ "res://.import/spiky-monster.ogg-ec05959f40baf5cb646cbc3619685b5d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

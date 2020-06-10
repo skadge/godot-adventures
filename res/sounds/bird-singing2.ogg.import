@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bird-singing2.ogg-70b7382b24f7d99a38d5dd7431f8a364.oggstr"
+
+[deps]
+
+source_file="res://res/sounds/bird-singing2.ogg"
+dest_files=[ "res://.import/bird-singing2.ogg-70b7382b24f7d99a38d5dd7431f8a364.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

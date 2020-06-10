@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/whispering-wind.ogg-c6b7cf38237b0e03199940b4e14ae797.oggstr"
+
+[deps]
+
+source_file="res://res/sounds/whispering-wind.ogg"
+dest_files=[ "res://.import/whispering-wind.ogg-c6b7cf38237b0e03199940b4e14ae797.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

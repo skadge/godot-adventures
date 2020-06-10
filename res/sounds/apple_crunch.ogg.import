@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/apple_crunch.ogg-53a1ade1ee58f7958c34c8f2d786f3e9.oggstr"
+
+[deps]
+
+source_file="res://res/sounds/apple_crunch.ogg"
+dest_files=[ "res://.import/apple_crunch.ogg-53a1ade1ee58f7958c34c8f2d786f3e9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
