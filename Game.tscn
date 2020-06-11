@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://res/props/props_bush_elouan_small.png" type="Texture" id=1]
 [ext_resource path="res://Bunny.tscn" type="PackedScene" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://res/interface/Title screen.tscn" type="PackedScene" id=33]
 [ext_resource path="res://res/props/fence.png" type="Texture" id=34]
 [ext_resource path="res://res/props/Apple.tscn" type="PackedScene" id=35]
+[ext_resource path="res://res/monsters/Spiky.tscn" type="PackedScene" id=36]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 80, 64, 80, 64, 112, 0, 112 )
@@ -1206,6 +1207,30 @@ rotation = -0.167552
 position = Vector2( 1872.13, 906.894 )
 rotation = -0.167552
 
+[node name="Spiky" parent="Items/Monsters" instance=ExtResource( 36 )]
+position = Vector2( 2259.13, 1273.29 )
+
+[node name="Spiky2" parent="Items/Monsters" instance=ExtResource( 36 )]
+position = Vector2( 2374.23, 1346.51 )
+
+[node name="Spiky3" parent="Items/Monsters" instance=ExtResource( 36 )]
+position = Vector2( 2455.82, 1300.57 )
+
+[node name="Spiky6" parent="Items/Monsters" instance=ExtResource( 36 )]
+position = Vector2( 2530.41, 1124.38 )
+
+[node name="Spiky7" parent="Items/Monsters" instance=ExtResource( 36 )]
+position = Vector2( 2316.93, 1091.8 )
+
+[node name="Spiky8" parent="Items/Monsters" instance=ExtResource( 36 )]
+position = Vector2( 2430.96, 1016.36 )
+
+[node name="Spiky4" parent="Items/Monsters" instance=ExtResource( 36 )]
+position = Vector2( 2625.29, 1339.52 )
+
+[node name="Spiky5" parent="Items/Monsters" instance=ExtResource( 36 )]
+position = Vector2( 2506.35, 1435.31 )
+
 [node name="Snowcat" parent="Items" instance=ExtResource( 25 )]
 position = Vector2( 2333.33, 105.333 )
 
@@ -1227,7 +1252,7 @@ script = ExtResource( 22 )
 position = Vector2( 1890.67, 1248 )
 
 [node name="Player" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 27.0277, 155.42 )
+position = Vector2( 38.8597, 167.104 )
 health = 90
 keys = 1
 

@@ -9,6 +9,8 @@ var direction = 1
 
 var rng = RandomNumberGenerator.new()
 
+export(int) var damage = 20
+
 func _ready():
     rng.randomize()
     $Path2D/PathFollow2D.unit_offset = rng.randf()
@@ -33,4 +35,4 @@ func _process(delta):
     
 func _on_touch_player(body):
     if body.get_name() == "Player":
-        player.health_change(-20)
+        player.health_change(-damage)
