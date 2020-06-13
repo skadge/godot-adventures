@@ -9,6 +9,8 @@ signal left
 signal right
 signal direction_btns_released
 
+signal sword_pressed
+
 func _on_btn_up():
     emit_signal("up")
 func _on_btn_down():
@@ -46,7 +48,7 @@ func _ready():
     $MainMsg.modulate.a = 0
     
     #_on_HotAirBalloonAvailable()
-    #_on_SwordAvailable()
+    _on_SwordAvailable()
     
 
 func resize_inventory_bg():
@@ -90,7 +92,7 @@ func _on_HotAirBalloonButton_pressed():
     $Inventory/HBox/PlayerButton.show()
 
 func _on_SwordButton_pressed():
-    print("Sword button pressed")
+    emit_signal("sword_pressed")
 
 func _on_zone_exited(body, zone):
     if body.get_name() == "Player" and player.moving:

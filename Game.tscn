@@ -1286,7 +1286,7 @@ position = Vector2( 1496, 1298.67 )
 curve = SubResource( 17 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Items/HagridPath"]
-position = Vector2( 1778.74, 321.458 )
+position = Vector2( 1778.75, 321.458 )
 rotation = 1.59642
 offset = 177.747
 rotate = false

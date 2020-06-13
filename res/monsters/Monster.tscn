@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://res/monsters/Monster.gd" type="Script" id=1]
 [ext_resource path="res://res/monsters/monster1_small.png" type="Texture" id=2]
 [ext_resource path="res://res/sounds/black_nightmare.ogg" type="AudioStream" id=3]
+[ext_resource path="res://res/characters/hit.svg" type="Texture" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -23,11 +24,17 @@ rotate = false
 
 [node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
 
+[node name="Hit" type="Sprite" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2( -2.62042, -1.00824 )
+scale = Vector2( 0.74372, 0.74372 )
+texture = ExtResource( 4 )
+
 [node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D/Area2D"]
 rotation = 2.96182
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path2D/PathFollow2D/Area2D"]
+visible = false
 polygon = PoolVector2Array( -45.5919, 32.9158, 4.23547, 24.1278, 21.53, 5.66431, 36.184, 15.9242, 57.2881, 4.49548, 45.8594, -16.6086, 56.1191, -31.2625, 31.2054, -26.8685, 9.51697, -33.3188, -22.4315, -25.1152, -50.5703, -9.87689, -57.0206, 11.8117 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/Area2D"]
@@ -35,4 +42,6 @@ stream = ExtResource( 3 )
 autoplay = true
 max_distance = 1500.0
 attenuation = 1.6245
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="body_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_touch_player"]

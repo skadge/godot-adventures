@@ -39,8 +39,8 @@ func _activate():
 
     var tween = root.get_node("Game/Tween")
     tween.interpolate_property(self, "modulate:a",
-    0, 1, 1,
-    Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+                                0, 1, 1,
+                                 Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
     tween.start()
     
     

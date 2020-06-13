@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
 onready var root = get_tree().root
+onready var interface = root.get_node("Game/GUILayer/Interface")
 onready var hotAirBalloonButton  = root.get_node("Game/GUILayer/Interface/Inventory/HBox/HotAirBalloonButton")
 onready var playerButton  = root.get_node("Game/GUILayer/Interface/Inventory/HBox/PlayerButton")
+
 
 var start_position
 
@@ -25,6 +27,8 @@ signal keys_tally_updated
 signal missing_key
 export(int) var keys = 0
 
+signal sword_hit
+export(int) var sword_damage_per_hit = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,10 +42,35 @@ func _ready():
     hotAirBalloonButton.connect("pressed", self, "_deactivate")
     playerButton.connect("pressed", self, "_activate")
     
+    # the sword target is initially hidden, only revealed when the sword is
+    # available and used.
+    $Sprite/SwordTargetAxis.modulate.a = 0
+    
+    interface.connect("sword_pressed", self, "attack")
+    
 func _process(delta):
     if modulate.a == 0:
         hide()
+
+    
+func attack():
+    $Sprite/SwordTargetAxis.show()
+    
+    $SwordTween.interpolate_property($Sprite/SwordTargetAxis, "modulate:a", 1, 0, 1)
+    $SwordTween.start()
+    
+    var hits = $Sprite/SwordTargetAxis/SwordTarget.get_overlapping_areas()
+
+    for hit in hits:
         
+        var node = hit.owner
+        if node.get_parent().get_name() == "Monsters":
+            # we've hit a monster!
+            node.hit(sword_damage_per_hit)
+
+
+        #emit_signal("sword_hit", body)
+             
 func _activate():
     
     
@@ -123,12 +152,16 @@ func _physics_process(delta):
     var sprite = $Sprite
     if velocity.x > 0:
         sprite.texture = load("res://res/characters/character1_maud_small_right.png")
+        $Sprite/SwordTargetAxis.rotation = PI/2
     if velocity.x < 0:
         sprite.texture = load("res://res/characters/character1_maud_small_left.png")
+        $Sprite/SwordTargetAxis.rotation =  -PI/2
     if velocity.y < 0:
         sprite.texture = load("res://res/characters/character1_maud_small_back.png")
+        $Sprite/SwordTargetAxis.rotation = 0
     if velocity.y > 0:
         sprite.texture = load("res://res/characters/character1_maud_small_face.png")
+        $Sprite/SwordTargetAxis.rotation = PI
 
     velocity = move_and_slide(velocity)
 
@@ -190,3 +223,5 @@ func _on_zone_entered(body, zone):
 
 func _on_zone_exited(body, zone):
     $BackgroundMusic.stop()
+
+

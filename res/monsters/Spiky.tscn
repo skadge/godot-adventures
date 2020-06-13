@@ -18,22 +18,26 @@ script = ExtResource( 4 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" parent="Path2D" index="0"]
-position = Vector2( -8.59815, 2.70001 )
+position = Vector2( -8.59815, 2.7 )
 rotation = -3.07352
 
 [node name="Area2D" parent="Path2D/PathFollow2D" index="0"]
 position = Vector2( 0.913321, -0.0622787 )
 
-[node name="Sprite" parent="Path2D/PathFollow2D/Area2D" index="0"]
+[node name="Hit" parent="Path2D/PathFollow2D/Area2D" index="0"]
+position = Vector2( -1.7341, -1.29619 )
+scale = Vector2( 0.359215, 0.359215 )
+
+[node name="Sprite" parent="Path2D/PathFollow2D/Area2D" index="1"]
 position = Vector2( 0.936483, 0.258797 )
 texture = ExtResource( 2 )
 
-[node name="CollisionPolygon2D" parent="Path2D/PathFollow2D/Area2D" index="1"]
+[node name="CollisionPolygon2D" parent="Path2D/PathFollow2D/Area2D" index="2"]
 position = Vector2( 12.6957, -6.48955 )
 scale = Vector2( 0.871939, 0.877327 )
 polygon = PoolVector2Array( -13.4036, 24.7867, 3.12097, -2.96082, -22.4413, -7.94452, -32.9099, 14.5813 )
 
-[node name="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/Area2D" index="2"]
+[node name="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/Area2D" index="3"]
 position = Vector2( -6.63538, 13.9451 )
 stream = ExtResource( 3 )
 max_distance = 500.0
