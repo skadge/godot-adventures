@@ -25,3 +25,6 @@ __meta__ = {
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -22.285

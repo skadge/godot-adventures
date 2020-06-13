@@ -180,3 +180,13 @@ func _on_path_entered(body):
 func _on_path_exited(body):
     speed = base_speed
     $SoundEffects.stream = load("res://res/sounds/steps-grass.ogg")
+
+func _on_zone_entered(body, zone):
+    if body.get_name() == "Player":
+        print("Player enters " + zone)
+        if zone == "Deep forest":
+            $BackgroundMusic.stream = load("res://res/sounds/bird-singing3.ogg")
+            $BackgroundMusic.play()
+
+func _on_zone_exited(body, zone):
+    $BackgroundMusic.stop()

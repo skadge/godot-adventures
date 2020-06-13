@@ -28,8 +28,9 @@ func _ready():
     set_camera_limits()
     
     $DialoguesLayer/Dialogues.hide()
-    #pass
-
+    
+    $background/DeepForest.connect("body_entered", $Items/Player, "_on_zone_entered", ["Deep forest"])
+    
 func _unhandled_input(event):
     if event is InputEventKey:
         if event.pressed and event.scancode == KEY_ESCAPE:

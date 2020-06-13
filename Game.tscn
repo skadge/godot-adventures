@@ -769,7 +769,6 @@ polygon = PoolVector2Array( 2669.33, 77.3333, 2757.33, 82.6667, 2784, 69.3333, 2
 polygon = PoolVector2Array( 2853.33, 229.333, 2920, 232, 2906.67, 192, 2869.33, 192 )
 
 [node name="DeepForest" type="Area2D" parent="background"]
-visible = false
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1278,7 +1277,7 @@ position = Vector2( 212.964, 72.7136 )
 script = ExtResource( 39 )
 
 [node name="Player" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 1187.91, 372.317 )
+position = Vector2( 2048.48, 1267.04 )
 
 [node name="HotAirBalloon" parent="Items" instance=ExtResource( 16 )]
 position = Vector2( 1496, 1298.67 )
@@ -1317,7 +1316,6 @@ visible = false
 [connection signal="body_exited" from="background/LonelyVillage" to="GUILayer/Interface" method="_on_zone_exited" binds= [ "Lonely Village" ]]
 [connection signal="body_entered" from="background/Lava" to="background/Lava" method="_on_Lava_body_entered"]
 [connection signal="body_exited" from="background/Lava" to="background/Lava" method="_on_Lava_body_exited"]
-[connection signal="body_entered" from="background/DeepForest" to="Items/Player" method="_on_zone_entered" binds= [ "Deep forest" ]]
 [connection signal="body_exited" from="background/DeepForest" to="Items/Player" method="_on_zone_exited" binds= [ "Deep forest" ]]
 [connection signal="hotAirBalloonAvailable" from="Items/Aeronaut" to="GUILayer/Interface" method="_on_HotAirBalloonAvailable"]
 [connection signal="body_entered" from="Items/Sorceress" to="Items/Sorceress" method="_on_Character_body_entered"]
