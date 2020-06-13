@@ -12,6 +12,7 @@ _data = {
 
 [node name="Troll" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
+life = 50
 
 [node name="Path2D" parent="." index="0"]
 position = Vector2( -1312.74, -5.69377 )
@@ -20,17 +21,20 @@ curve = SubResource( 1 )
 [node name="PathFollow2D" parent="Path2D" index="0"]
 position = Vector2( 1310.39, 4.23548 )
 
-[node name="Sprite" parent="Path2D/PathFollow2D/Area2D" index="0"]
+[node name="Sprite" parent="Path2D/PathFollow2D/Area2D" index="1"]
 position = Vector2( -13.7555, -16.6643 )
 rotation = 2.6721
 texture = ExtResource( 2 )
 
-[node name="CollisionPolygon2D" parent="Path2D/PathFollow2D/Area2D" index="1"]
+[node name="CollisionPolygon2D" parent="Path2D/PathFollow2D/Area2D" index="2"]
 position = Vector2( -9.22756, -28.0223 )
 polygon = PoolVector2Array( -24.5932, 29.4723, 23.8271, 9.08279, 1.03482, -15.7193, 0.491376, -57.474, -58.3104, -25.6307, -28.6445, -1.13791 )
 
-[node name="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/Area2D" index="2"]
+[node name="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/Area2D" index="3"]
 position = Vector2( -3.45786, -5.43574 )
 stream = ExtResource( 3 )
 max_distance = 500.0
 attenuation = 1.93187
+
+[node name="Energy_bar" parent="Path2D/PathFollow2D/Area2D" index="4"]
+position = Vector2( 53.5296, 29.1829 )

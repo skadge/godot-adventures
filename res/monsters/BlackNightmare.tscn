@@ -9,6 +9,7 @@ _data = {
 }
 
 [node name="BlackNightmare" instance=ExtResource( 1 )]
+life = 30
 
 [node name="Path2D" parent="." index="0"]
 position = Vector2( -1320, -8 )
@@ -16,15 +17,22 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" parent="Path2D" index="0"]
 position = Vector2( 1311.84, 5.42258 )
+rotation = 0.0
 
 [node name="Area2D" parent="Path2D/PathFollow2D" index="0"]
 position = Vector2( 4.33167, -4.28185 )
 
-[node name="Sprite" parent="Path2D/PathFollow2D/Area2D" index="0"]
+[node name="Sprite" parent="Path2D/PathFollow2D/Area2D" index="1"]
 position = Vector2( 3.40671, 6.09289 )
+rotation = 0.0
 
-[node name="CollisionPolygon2D" parent="Path2D/PathFollow2D/Area2D" index="1"]
+[node name="CollisionPolygon2D" parent="Path2D/PathFollow2D/Area2D" index="2"]
 position = Vector2( 2.88443, 7.82538 )
+polygon = PoolVector2Array( -52.7153, 21.5204, -13.1144, 26.0278, 45.8039, 17.9788, 59.6481, -22.9099, -9.57288, -19.0464, -53.3592, -18.4024 )
 
-[node name="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/Area2D" index="2"]
+[node name="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/Area2D" index="3"]
 position = Vector2( -1.91982, 4.45964 )
+
+[node name="Energy_bar" parent="Path2D/PathFollow2D/Area2D" index="4"]
+position = Vector2( -39.1038, -40.0198 )
+rotation = -0.0907571

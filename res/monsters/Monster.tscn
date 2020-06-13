@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://res/monsters/Monster.gd" type="Script" id=1]
 [ext_resource path="res://res/monsters/monster1_small.png" type="Texture" id=2]
 [ext_resource path="res://res/sounds/black_nightmare.ogg" type="AudioStream" id=3]
 [ext_resource path="res://res/characters/hit.svg" type="Texture" id=4]
+[ext_resource path="res://res/characters/energy_bar_fill.svg" type="Texture" id=5]
+[ext_resource path="res://res/characters/energy_bar.svg" type="Texture" id=6]
+[ext_resource path="res://res/monsters/Energy_bar.gd" type="Script" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -38,10 +41,25 @@ visible = false
 polygon = PoolVector2Array( -45.5919, 32.9158, 4.23547, 24.1278, 21.53, 5.66431, 36.184, 15.9242, 57.2881, 4.49548, 45.8594, -16.6086, 56.1191, -31.2625, 31.2054, -26.8685, 9.51697, -33.3188, -22.4315, -25.1152, -50.5703, -9.87689, -57.0206, 11.8117 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2( -5.10376, 13.1597 )
 stream = ExtResource( 3 )
 autoplay = true
 max_distance = 1500.0
 attenuation = 1.6245
+
+[node name="Energy_bar" type="Sprite" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2( 68.9143, 22.0077 )
+rotation = -3.61632
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 6 )
+centered = false
+script = ExtResource( 7 )
+
+[node name="Energy_level" type="Sprite" parent="Path2D/PathFollow2D/Area2D/Energy_bar"]
+show_behind_parent = true
+scale = Vector2( 0.853, 1 )
+texture = ExtResource( 5 )
+centered = false
 
 [node name="Tween" type="Tween" parent="."]
 [connection signal="body_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_touch_player"]
