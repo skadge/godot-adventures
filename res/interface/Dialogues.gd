@@ -32,7 +32,7 @@ func say(sprite, text):
     $Box/RichTextLabel.bbcode_text = text
 
 
-func say_many(sprite, sentences):
+func say_many(sprite, sentences, cb_object = null, on_conversation_finished = null):
     
     show()
     hide_all_buttons()
@@ -52,7 +52,8 @@ func say_many(sprite, sentences):
         else:
             btnContinue.hide()
             get_parent().set_process_input(false)
-            emit_signal("conversation_finished")
+            if cb_object and on_conversation_finished:
+                cb_object.call(on_conversation_finished)
     
 func say_yes_no(sprite, text, cb_object, on_yes, on_no):
     
