@@ -22,7 +22,7 @@ func _ready():
     energy_bar.scale.x = 1
     
     rng.randomize()
-    $Path2D/PathFollow2D.unit_offset = rng.randf()
+    $Path2D/PathFollow2D.unit_offset = rng.randf_range(0.1,0.9)
     
     speed_factor = rng.randf_range(speed_factor * 0.5, speed_factor * 1.5)
     

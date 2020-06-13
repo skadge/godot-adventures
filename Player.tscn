@@ -1,30 +1,29 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://2d_motion.gd" type="Script" id=1]
 [ext_resource path="res://res/characters/character1_maud_small_face.png" type="Texture" id=2]
 [ext_resource path="res://res/sounds/steps-grass.ogg" type="AudioStream" id=3]
 [ext_resource path="res://res/characters/sword_target.svg" type="Texture" id=4]
+[ext_resource path="res://res/props/sword_icon.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.06341
 
 [node name="Player - KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 1 )
+gold = 100
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 offset = Vector2( 0, 64 )
 
 [node name="SwordTargetAxis" type="Node2D" parent="Sprite"]
-visible = false
+show_behind_parent = true
 position = Vector2( -0.347954, 78.1142 )
 rotation = 3.14159
 
 [node name="SwordTarget" type="Area2D" parent="Sprite/SwordTargetAxis"]
 position = Vector2( 0.695892, -52.54 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="SwordTargetSprite" type="Sprite" parent="Sprite/SwordTargetAxis/SwordTarget"]
 scale = Vector2( 0.1, 0.1 )
@@ -33,6 +32,11 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/SwordTargetAxis/SwordTarget"]
 visible = false
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Sprite/SwordTargetAxis/SwordTarget"]
+position = Vector2( -0.757512, 5.64388 )
+scale = Vector2( 0.349157, 0.349157 )
+texture = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 0, 64 )

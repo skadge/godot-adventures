@@ -32,6 +32,8 @@ polygon = PoolVector2Array( -52.7153, 21.5204, -13.1144, 26.0278, 45.8039, 17.97
 
 [node name="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/Area2D" index="3"]
 position = Vector2( -1.91982, 4.45964 )
+max_distance = 1000.0
+attenuation = 2.46228
 
 [node name="Energy_bar" parent="Path2D/PathFollow2D/Area2D" index="4"]
 position = Vector2( -39.1038, -40.0198 )

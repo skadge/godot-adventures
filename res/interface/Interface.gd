@@ -43,12 +43,12 @@ func _ready():
     $Inventory.hide()
     $Inventory/HBox/HotAirBalloonButton.hide()
     $Inventory/HBox/PlayerButton.hide()
-    $Inventory/HBox/SwordButton.hide()
+    $SwordPanel.hide()
     
     $MainMsg.modulate.a = 0
     
     #_on_HotAirBalloonAvailable()
-    _on_SwordAvailable()
+    #_on_SwordAvailable()
     
 
 func resize_inventory_bg():
@@ -74,12 +74,8 @@ func _on_HotAirBalloonAvailable():
 
 func _on_SwordAvailable():
     
-    if not $Inventory.visible:
-        $Inventory.show()
     
-    $Inventory/HBox/SwordButton.show()
-
-    resize_inventory_bg()
+    $SwordPanel.show()
 
 
 func _on_PlayerButton_pressed():

@@ -21,7 +21,7 @@ func meeting_player_over():
     
     is_first_time = false
     
-    $Timer.set_wait_time(3)
+    $Timer.set_wait_time(2)
     $Timer.connect("timeout", self, "go_back_cabin")
     $Timer.start()
 
@@ -41,7 +41,11 @@ func dialogue_stages():
                      "She might know how to get you into the castle",
                      "Maybe?",
                      "Mountains are not far away, just keep walking East"]
-        dialogue.say_many($Sprite, sentences, self, "meeting_player_over") 
+        dialogue.say_many($Sprite, sentences)
+        
+        yield(dialogue, "conversation_finished") 
+        
+        meeting_player_over()
         
         
     else:

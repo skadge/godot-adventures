@@ -9,10 +9,7 @@ var balloonSold = false
 signal hotAirBalloonAvailable
 
 func _init():
-    dialogues = ["Hello, I am the aeronaut.",
-                 "Welcome to my shop! I sell hot air balloons for 25 coins.",
-                 "would you like to buy?"
-                ]
+
                 
     dialogueDefault = ["I love to fly!", 
                        "Have you ever dreamt of being a bird?"]
@@ -22,18 +19,22 @@ func dialogue_stages():
 
     if not balloonSold:
         
-        var sentences = dialogues
+        var sentences = []
         
         if is_first_time:
+            sentences = ["Hello, I am the aeronaut."]
             is_first_time = false
-        else:
-            sentences = dialogues.slice(1, dialogues.size()-1)
+        
+        sentences += [
+                 "Welcome to my shop! I sell hot air balloons for 25 coins.",
+                 ""
+                ]
         
             
         dialogue.say_many($Sprite, sentences)
         yield(dialogue, "conversation_finished")
         dialogue.say_yes_no($Sprite, 
-                    dialogues[2],
+                    "would you like to buy?",
                     self,
                     "on_yes_buy_balloon", 
                     "on_no_buy_balloon")

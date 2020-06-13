@@ -1277,7 +1277,7 @@ position = Vector2( 212.964, 72.7136 )
 script = ExtResource( 39 )
 
 [node name="Player" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 2048.48, 1267.04 )
+position = Vector2( 1223.36, 404.848 )
 
 [node name="HotAirBalloon" parent="Items" instance=ExtResource( 16 )]
 position = Vector2( 1496, 1298.67 )

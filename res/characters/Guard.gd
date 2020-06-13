@@ -10,11 +10,16 @@ func dialogue_stages():
     
     if is_first_time:
         sentences += ["I'm the guard of the castle."]
-        is_first_time = false
+        
 
     sentences += ["Only the royal family can get in.",
                  "Go away!"]
 
-    dialogue.say_many($Sprite, sentences, hagrid, "encounter_player") 
+    dialogue.say_many($Sprite, sentences)
+    
+    if is_first_time:
+        yield(dialogue, "conversation_finished")
+        hagrid.encounter_player()
+        is_first_time = false
 
         

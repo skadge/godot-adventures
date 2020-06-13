@@ -26,8 +26,6 @@ func _ready():
     
     connect("body_entered", self, "_on_Character_body_entered")
     connect("body_exited", self, "_on_Character_body_exited")
-    #buttonYes.connect("pressed", self, "_on_yes")
-    #buttonNo.connect("pressed", self, "_on_no")
 
 # to be overriden for each different character
 func dialogue_stages():

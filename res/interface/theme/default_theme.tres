@@ -1,7 +1,19 @@
-[gd_resource type="Theme" load_steps=3 format=2]
+[gd_resource type="Theme" load_steps=4 format=2]
 
 [ext_resource path="res://res/interface/theme/default_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://res/interface/theme/dialogue_font.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.862745, 0.592157, 0.211765, 0.466667 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.305882, 0.054902, 0.054902, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [resource]
 default_font = ExtResource( 2 )
@@ -25,6 +37,7 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = ExtResource( 1 )
 Label/styles/normal = null
+Panel/styles/panel = SubResource( 1 )
 RichTextLabel/colors/default_color = Color( 0.294118, 0.0666667, 0.0666667, 1 )
 RichTextLabel/colors/font_color_selected = Color( 0.49, 0.49, 0.49, 1 )
 RichTextLabel/colors/font_color_shadow = Color( 0, 0, 0, 0 )
