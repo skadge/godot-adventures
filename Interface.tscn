@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://res/interface/gold/GoldCounter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://res/interface/Interface.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://res/interface/64px_placeholder.png" type="Texture" id=12]
 [ext_resource path="res://res/interface/up_arrow.png" type="Texture" id=13]
 [ext_resource path="res://res/interface/KeyCounter.tscn" type="PackedScene" id=14]
+[ext_resource path="res://res/interface/AppleCounter.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "DisplayMainMsg"
@@ -52,6 +53,14 @@ margin_left = -381.0
 margin_top = 32.0
 margin_right = -216.0
 margin_bottom = 112.0
+
+[node name="AppleCounter" parent="." instance=ExtResource( 15 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -672.467
+margin_top = 28.529
+margin_right = -535.467
+margin_bottom = 108.529
 
 [node name="KeyCounter" parent="." instance=ExtResource( 14 )]
 anchor_left = 1.0

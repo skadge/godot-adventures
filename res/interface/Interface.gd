@@ -60,6 +60,11 @@ func _on_Player_keys_tally_updated(keys):
 func _on_Player_gold_increased(gold):
     $GoldCounter/Label.text = str(gold)
 
+
+func _on_Player_apple_collected(nb_apple):
+    $AppleCounter/Label.text = str(int($AppleCounter/Label.text) + nb_apple)
+
+
 func _on_Player_health_changed(health):
     $HealthCounter/Label.text = str(health)
     
@@ -107,8 +112,9 @@ func _on_death():
         $AnimationPlayer.playback_speed = 0.5
         $AnimationPlayer.play("DisplayMainMsg")
 
-func on_msg(msg):
+func on_msg(msg, display_duration=1):
         $MainMsg/Label.bbcode_text = msg
-        $AnimationPlayer.playback_speed = 1
+        $AnimationPlayer.playback_speed = 1.0/display_duration
         $AnimationPlayer.play("DisplayMainMsg")
+
 

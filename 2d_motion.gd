@@ -20,6 +20,9 @@ signal health_changed
 signal dead
 export(int) var health = 100
 
+signal apple_collected
+var first_apple = true
+
 signal gold_increased
 export(int) var gold = 0
 
@@ -181,6 +184,13 @@ func use_key():
 func collect_gold(nb_gold=1):
     gold += nb_gold
     emit_signal("gold_increased", gold)
+
+func collect_apple(nb_apple=1):
+    if first_apple:
+        first_apple = false
+        interface.on_msg("[center] You've picked up an apple!\nClick on the icon to eat it and regain some energy.[/center]",2)
+    emit_signal("apple_collected", nb_apple)
+
 
 func pay_out(cost):
     gold -= cost

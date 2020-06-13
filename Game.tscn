@@ -1324,6 +1324,7 @@ visible = false
 [connection signal="body_entered" from="Items/Blacksmith" to="Items/Blacksmith" method="_on_Character_body_entered"]
 [connection signal="body_exited" from="Items/Blacksmith" to="Items/Blacksmith" method="_on_Character_body_exited"]
 [connection signal="swordAvailable" from="Items/Blacksmith" to="GUILayer/Interface" method="_on_SwordAvailable"]
+[connection signal="apple_collected" from="Items/Player" to="GUILayer/Interface" method="_on_Player_apple_collected"]
 [connection signal="dead" from="Items/Player" to="GUILayer/Interface" method="_on_death"]
 [connection signal="gold_increased" from="Items/Player" to="GUILayer/Interface" method="_on_Player_gold_increased"]
 [connection signal="health_changed" from="Items/Player" to="GUILayer/Interface" method="_on_Player_health_changed"]
