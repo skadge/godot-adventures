@@ -41,15 +41,15 @@ func hit(damage):
     
 func path_following(delta):
     
-    if $Path2D/PathFollow2D.unit_offset > 0.99:
-        $Path2D/PathFollow2D.unit_offset = 0.99
+    if $Path2D/PathFollow2D.unit_offset > 0.97:
+        $Path2D/PathFollow2D.unit_offset = 0.97
         direction = -1
-        $Path2D/PathFollow2D/Area2D.scale.x *= -1
+        $Path2D/PathFollow2D/Area2D/Sprite.set_flip_h(not $Path2D/PathFollow2D/Area2D/Sprite.flip_h)
         
-    if $Path2D/PathFollow2D.unit_offset < 0.01:
-        $Path2D/PathFollow2D.unit_offset = 0.01
+    if $Path2D/PathFollow2D.unit_offset < 0.03:
+        $Path2D/PathFollow2D.unit_offset = 0.03
         direction = 1
-        $Path2D/PathFollow2D/Area2D.scale.x *= -1
+        $Path2D/PathFollow2D/Area2D/Sprite.set_flip_h(not $Path2D/PathFollow2D/Area2D/Sprite.flip_h)
     
     $Path2D/PathFollow2D.unit_offset += direction * delta * speed_factor
     
