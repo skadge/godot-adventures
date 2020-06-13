@@ -4,7 +4,7 @@ onready var root = get_tree().root
 
 onready var player  = root.get_node("Game/Items/Player")
 
-var speed_factor = 0.6
+export(float) var speed_factor = 0.6
 var direction = 1
 
 var rng = RandomNumberGenerator.new()
@@ -19,7 +19,7 @@ func _ready():
     
 
 
-func _process(delta):   
+func path_following(delta):
     
     if $Path2D/PathFollow2D.unit_offset > 0.99:
         $Path2D/PathFollow2D.unit_offset = 0.99
@@ -32,6 +32,9 @@ func _process(delta):
         $Path2D/PathFollow2D/Area2D.scale.x *= -1
     
     $Path2D/PathFollow2D.unit_offset += direction * delta * speed_factor
+    
+func _process(delta):   
+    path_following(delta)
     
 func _on_touch_player(body):
     if body.get_name() == "Player":

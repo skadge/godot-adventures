@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://res/monsters/Monster.tscn" type="PackedScene" id=1]
+[ext_resource path="res://res/monsters/green_nightmare_small.png" type="Texture" id=2]
+[ext_resource path="res://res/sounds/green_monster.ogg" type="AudioStream" id=3]
+[ext_resource path="res://res/monsters/Troll.gd" type="Script" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1317.26, 0.530075, 28.4689, 12.2635, -28.4689, -12.2635, 1249.37, 12.3556, -2.6279, 25.403, 2.6279, -25.403, 1191.56, -34.9466, -26.717, 10.5116, 26.717, -10.5116, 1285.73, -79.6208, 0, 0, 0, 0, 1380.77, -73.9271, -7.8837, -34.1627, 7.8837, 34.1627, 1440.77, -23.997, 24.0891, -5.69378, -24.0891, 5.69378, 1384.71, 1.40605, 0, 0, 0, 0, 1317.26, 0.530075 )
+}
+
+[node name="Troll" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="Path2D" parent="." index="0"]
+position = Vector2( -1312.74, -5.69377 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="Path2D" index="0"]
+position = Vector2( 1310.39, 4.23549 )
+
+[node name="Sprite" parent="Path2D/PathFollow2D/Area2D" index="0"]
+position = Vector2( -13.7555, -16.6643 )
+rotation = 2.6721
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="Path2D/PathFollow2D/Area2D" index="1"]
+position = Vector2( -9.22756, -28.0223 )
+polygon = PoolVector2Array( -24.5932, 29.4723, 23.8271, 9.08279, 1.03482, -15.7193, 0.491376, -57.474, -58.3104, -25.6307, -28.6445, -1.13791 )
+
+[node name="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/Area2D" index="2"]
+position = Vector2( -3.45786, -5.43574 )
+stream = ExtResource( 3 )
+max_distance = 500.0
+attenuation = 1.93187
