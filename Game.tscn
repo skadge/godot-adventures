@@ -552,6 +552,39 @@ position = Vector2( 381.758, 409.736 )
 [node name="Apple2" parent="Coins&Apples" instance=ExtResource( 35 )]
 position = Vector2( 551.88, 457.117 )
 
+[node name="Apple10" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 669.302, 845.898 )
+
+[node name="Apple11" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 717.989, 833.01 )
+
+[node name="Apple12" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 983.62, 1129.43 )
+
+[node name="Apple13" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 898.417, 1183.13 )
+
+[node name="Apple14" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 930.59, 1142.81 )
+
+[node name="Apple15" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 1686.82, 866.909 )
+
+[node name="Apple16" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 1748.55, 853.62 )
+
+[node name="Apple17" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 1753.27, 876.768 )
+
+[node name="Apple18" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 2124.08, 756.736 )
+
+[node name="Apple19" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 2036.63, 637.99 )
+
+[node name="Apple20" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 1991.19, 628.987 )
+
 [node name="Apple3" parent="Coins&Apples" instance=ExtResource( 35 )]
 position = Vector2( 607.383, 424.176 )
 
