@@ -29,14 +29,14 @@ func _ready():
         $DirectionButtons.show()
         
         # Forwarding of the direction buttons signals
-        $DirectionButtons/VBoxContainer/LeftBtn.connect("button_down", self, "_on_btn_left")
-        $DirectionButtons/VBoxContainer/LeftBtn.connect("button_up", self, "_on_btn_released")
-        $DirectionButtons/VBoxContainer3/RightBtn.connect("button_down", self, "_on_btn_right")
-        $DirectionButtons/VBoxContainer3/RightBtn.connect("button_up", self, "_on_btn_released")
-        $DirectionButtons/VBoxContainer2/UpBtn.connect("button_down", self, "_on_btn_up")
-        $DirectionButtons/VBoxContainer2/UpBtn.connect("button_up", self, "_on_btn_released")
-        $DirectionButtons/VBoxContainer2/DownBtn.connect("button_down", self, "_on_btn_down")
-        $DirectionButtons/VBoxContainer2/DownBtn.connect("button_up", self, "_on_btn_released")
+        $DirectionButtons/LeftBtn.connect("button_down", self, "_on_btn_left")
+        $DirectionButtons/LeftBtn.connect("button_up", self, "_on_btn_released")
+        $DirectionButtons/RightBtn.connect("button_down", self, "_on_btn_right")
+        $DirectionButtons/RightBtn.connect("button_up", self, "_on_btn_released")
+        $DirectionButtons/UpBtn.connect("button_down", self, "_on_btn_up")
+        $DirectionButtons/UpBtn.connect("button_up", self, "_on_btn_released")
+        $DirectionButtons/DownBtn.connect("button_down", self, "_on_btn_down")
+        $DirectionButtons/DownBtn.connect("button_up", self, "_on_btn_released")
     else:
         $DirectionButtons.hide()
         

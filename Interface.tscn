@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://res/interface/gold/GoldCounter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://res/interface/Interface.gd" type="Script" id=2]
@@ -8,13 +8,16 @@
 [ext_resource path="res://res/interface/theme/default_theme.tres" type="Theme" id=6]
 [ext_resource path="res://res/props/sword_icon.png" type="Texture" id=7]
 [ext_resource path="res://res/interface/HealthCounter.tscn" type="PackedScene" id=8]
-[ext_resource path="res://res/interface/down_arrow.png" type="Texture" id=9]
-[ext_resource path="res://res/interface/right_arrow.png" type="Texture" id=10]
-[ext_resource path="res://res/interface/left_arrow.png" type="Texture" id=11]
-[ext_resource path="res://res/interface/64px_placeholder.png" type="Texture" id=12]
-[ext_resource path="res://res/interface/up_arrow.png" type="Texture" id=13]
+[ext_resource path="res://res/interface/right_arrow_pressed.svg" type="Texture" id=9]
+[ext_resource path="res://res/interface/down_arrow_pressed.svg" type="Texture" id=10]
+[ext_resource path="res://res/interface/down_arrow.svg" type="Texture" id=11]
+[ext_resource path="res://res/interface/up_arrow.svg" type="Texture" id=12]
+[ext_resource path="res://res/interface/left_arrow.svg" type="Texture" id=13]
 [ext_resource path="res://res/interface/KeyCounter.tscn" type="PackedScene" id=14]
 [ext_resource path="res://res/interface/AppleCounter.tscn" type="PackedScene" id=15]
+[ext_resource path="res://res/interface/up_arrow_pressed.svg" type="Texture" id=16]
+[ext_resource path="res://res/interface/left_arrow_pressed.svg" type="Texture" id=17]
+[ext_resource path="res://res/interface/right_arrow.svg" type="Texture" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "DisplayMainMsg"
@@ -194,81 +197,66 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/DisplayMainMsg = SubResource( 1 )
 
-[node name="DirectionButtons" type="HBoxContainer" parent="."]
+[node name="DirectionButtons" type="Control" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 63.0
-margin_top = -231.0
-margin_right = 263.0
-margin_bottom = -31.0
+margin_left = 26.6955
+margin_top = -319.856
+margin_right = 223.695
+margin_bottom = -122.856
+rect_scale = Vector2( 1.5, 1.5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DirectionButtons"]
-margin_right = 64.0
-margin_bottom = 200.0
+[node name="RightBtn" type="TextureButton" parent="DirectionButtons"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -31.5
+margin_bottom = 31.5
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TextureRect" type="TextureRect" parent="DirectionButtons/VBoxContainer"]
-margin_right = 64.0
-margin_bottom = 64.0
-texture = ExtResource( 12 )
-
-[node name="LeftBtn" type="TextureButton" parent="DirectionButtons/VBoxContainer"]
-margin_top = 68.0
-margin_right = 64.0
-margin_bottom = 132.0
+[node name="DownBtn" type="TextureButton" parent="DirectionButtons"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -32.0
+margin_top = -80.0
+margin_right = 32.0
 texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TextureRect2" type="TextureRect" parent="DirectionButtons/VBoxContainer"]
-margin_top = 136.0
-margin_right = 64.0
-margin_bottom = 200.0
-texture = ExtResource( 12 )
+[node name="UpBtn" type="TextureButton" parent="DirectionButtons"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -32.0
+margin_right = 32.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="DirectionButtons"]
-margin_left = 68.0
-margin_right = 132.0
-margin_bottom = 200.0
-
-[node name="UpBtn" type="TextureButton" parent="DirectionButtons/VBoxContainer2"]
-margin_right = 64.0
-margin_bottom = 64.0
+[node name="LeftBtn" type="TextureButton" parent="DirectionButtons"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -32.0
+margin_right = 80.0
+margin_bottom = 32.0
 texture_normal = ExtResource( 13 )
-
-[node name="TextureRect3" type="TextureRect" parent="DirectionButtons/VBoxContainer2"]
-margin_top = 68.0
-margin_right = 64.0
-margin_bottom = 132.0
-texture = ExtResource( 12 )
-
-[node name="DownBtn" type="TextureButton" parent="DirectionButtons/VBoxContainer2"]
-margin_top = 136.0
-margin_right = 64.0
-margin_bottom = 200.0
-texture_normal = ExtResource( 9 )
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="DirectionButtons"]
-margin_left = 136.0
-margin_right = 200.0
-margin_bottom = 200.0
-
-[node name="TextureRect3" type="TextureRect" parent="DirectionButtons/VBoxContainer3"]
-margin_right = 64.0
-margin_bottom = 64.0
-texture = ExtResource( 12 )
-
-[node name="RightBtn" type="TextureButton" parent="DirectionButtons/VBoxContainer3"]
-margin_top = 68.0
-margin_right = 64.0
-margin_bottom = 132.0
-texture_normal = ExtResource( 10 )
-
-[node name="TextureRect4" type="TextureRect" parent="DirectionButtons/VBoxContainer3"]
-margin_top = 136.0
-margin_right = 64.0
-margin_bottom = 200.0
-texture = ExtResource( 12 )
+texture_pressed = ExtResource( 17 )
 [connection signal="pressed" from="SwordPanel/SwordButton" to="." method="_on_SwordButton_pressed"]
 [connection signal="pressed" from="Inventory/HBox/HotAirBalloonButton" to="." method="_on_HotAirBalloonButton_pressed"]
 [connection signal="pressed" from="Inventory/HBox/PlayerButton" to="." method="_on_PlayerButton_pressed"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/up_arrow.png-aa294d061ae6a770a0176dc13e789e5c.stex"
+path="res://.import/right_arrow.svg-047c00a8665ce3997701e59096ae2a0e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/interface/up_arrow.png"
-dest_files=[ "res://.import/up_arrow.png-aa294d061ae6a770a0176dc13e789e5c.stex" ]
+source_file="res://res/interface/right_arrow.svg"
+dest_files=[ "res://.import/right_arrow.svg-047c00a8665ce3997701e59096ae2a0e.stex" ]
 
 [params]
 
