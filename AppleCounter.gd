@@ -12,6 +12,6 @@ func _ready():
 
 func eat_apple():
     if int($Label.text) > 0:
-        $Label.text = str(int($Label.text) - 1)
+        player.apple_changed(-1)
         $AudioStreamPlayer.play()
         player.health_change(health_per_apple)

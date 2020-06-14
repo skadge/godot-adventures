@@ -61,8 +61,8 @@ func _on_Player_gold_increased(gold):
     $GoldCounter/Label.text = str(gold)
 
 
-func _on_Player_apple_collected(nb_apple):
-    $AppleCounter/Label.text = str(int($AppleCounter/Label.text) + nb_apple)
+func _on_Player_apple_collected(apple):
+    $AppleCounter/Label.text = str(apple)
 
 
 func _on_Player_health_changed(health):

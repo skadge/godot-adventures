@@ -21,6 +21,7 @@ signal dead
 export(int) var health = 100
 
 signal apple_collected
+export(int) var apple = 0
 var first_apple = true
 
 signal gold_increased
@@ -41,6 +42,7 @@ func _ready():
     emit_signal("keys_tally_updated", keys)
     emit_signal("gold_increased", gold)
     emit_signal("health_changed", health)
+    emit_signal("apple_collected", apple)
     
     hotAirBalloonButton.connect("pressed", self, "_deactivate")
     playerButton.connect("pressed", self, "_activate")
@@ -185,16 +187,21 @@ func collect_gold(nb_gold=1):
     gold += nb_gold
     emit_signal("gold_increased", gold)
 
-func collect_apple(nb_apple=1):
-    if first_apple:
-        first_apple = false
-        interface.on_msg("[center] You've picked up an apple!\nClick on the icon to eat it and regain some energy.[/center]",2)
-    emit_signal("apple_collected", nb_apple)
-
-
 func pay_out(cost):
     gold -= cost
     emit_signal("gold_increased", gold)
+
+func apple_changed(nb_apple=1):
+    apple += nb_apple
+    if apple < 0:
+        apple = 0
+        
+    if first_apple:
+        first_apple = false
+        interface.on_msg("[center] You've picked up an apple!\nClick on the icon to eat it and regain some energy.[/center]",2)
+    emit_signal("apple_collected", apple)
+
+
 
 func health_change(delta):
     
@@ -206,6 +213,7 @@ func health_change(delta):
     if health <= 0:
         moving = false # important to make sure the 'death' msg is not overwritten by 'you are entering Pine Village'
         position = start_position
+        yield(root.get_node("Game/background/PineVillage"), "body_entered")
         health = 75
         pay_out(gold)
         emit_signal("dead")

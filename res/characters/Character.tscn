@@ -7,7 +7,7 @@
 extents = Vector2( 24, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16.7144, 21.5441 )
+extents = Vector2( 12.6475, 18.1551 )
 
 [node name="Character" type="Area2D"]
 script = ExtResource( 2 )
@@ -18,12 +18,10 @@ scale = Vector2( 0.666667, 0.666667 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 64 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 1.35562, 76.5921 )
