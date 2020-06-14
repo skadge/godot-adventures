@@ -8,8 +8,10 @@
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2( 0, 64 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, 64 )
+position = Vector2( -0.561165, -24.9353 )
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2( -2.11061, -13.161 )

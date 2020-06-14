@@ -172,6 +172,8 @@ func _physics_process(delta):
         $Sprite/SwordTargetAxis.rotation = PI
 
     velocity = move_and_slide(velocity)
+    
+
 
 func collect_key():
     keys += 1

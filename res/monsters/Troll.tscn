@@ -21,6 +21,9 @@ curve = SubResource( 1 )
 [node name="PathFollow2D" parent="Path2D" index="0"]
 position = Vector2( 1310.39, 4.23548 )
 
+[node name="Area2D" parent="Path2D/PathFollow2D" index="0"]
+position = Vector2( 34.4748, 57.2557 )
+
 [node name="Sprite" parent="Path2D/PathFollow2D/Area2D" index="1"]
 position = Vector2( -13.7555, -16.6643 )
 rotation = 2.6721

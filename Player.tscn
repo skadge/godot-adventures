@@ -97,7 +97,7 @@ script = ExtResource( 1 )
 gold = 100
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( -2.32053, 34.0632 )
+position = Vector2( -2.04448, -49.0246 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 18 )
 animation = "walking_right"
@@ -126,15 +126,12 @@ scale = Vector2( 0.349157, 0.349157 )
 texture = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( 0, 64 )
+position = Vector2( 4.14059, -19.6399 )
 polygon = PoolVector2Array( -12.8727, 20.5832, -13.2999, 28.9133, 4.00117, 29.3405, 5.92352, 21.4376, 2.50601, 8.62192, -10.096, 8.40833 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 15.9997, 45.3337 )
+position = Vector2( -0.822627, -30.8256 )
 current = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

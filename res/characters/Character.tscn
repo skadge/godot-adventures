@@ -4,25 +4,25 @@
 [ext_resource path="res://res/characters/Character.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 32 )
+extents = Vector2( 24, 37.5425 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 12.6475, 18.1551 )
+extents = Vector2( 11.4411, 13.2529 )
 
 [node name="Character" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 64 )
+position = Vector2( -0.996506, -29.4219 )
 scale = Vector2( 0.666667, 0.666667 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 64 )
+position = Vector2( -0.81694, -29.5392 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1.35562, 76.5921 )
+position = Vector2( 1.85387, -15.335 )
 shape = SubResource( 2 )
