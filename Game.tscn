@@ -778,6 +778,7 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/DeepForest"]
+visible = false
 polygon = PoolVector2Array( 2358.54, 1551.45, 2319.58, 1447.23, 2330.29, 1329.38, 2392.63, 1249.51, 2358.54, 1180.35, 2427.69, 1081.01, 2558.21, 1048.86, 2694.57, 1034.25, 2808.53, 1060.55, 2862.1, 1128.73, 2959.5, 1199.83, 2969.24, 1545.61 )
 
 [node name="Background items" type="TileMap" parent="."]
@@ -1159,7 +1160,7 @@ position = Vector2( 424, 349.333 )
 [node name="bunny" parent="Animals" instance=ExtResource( 2 )]
 position = Vector2( 245.333, 42.6667 )
 
-[node name="whale_small" type="Sprite" parent="Animals"]
+[node name="Sea creature" type="Sprite" parent="Animals"]
 position = Vector2( 165.867, 1050.67 )
 texture = ExtResource( 27 )
 
@@ -1260,7 +1261,7 @@ position = Vector2( 2625.29, 1339.52 )
 position = Vector2( 2506.35, 1435.31 )
 
 [node name="Troll" parent="Items/Monsters" instance=ExtResource( 37 )]
-position = Vector2( 82.3735, 598.672 )
+position = Vector2( 65.6761, 635.732 )
 
 [node name="Snowcat" parent="Items" instance=ExtResource( 25 )]
 position = Vector2( 2333.33, 105.333 )

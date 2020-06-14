@@ -1,10 +1,93 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://2d_motion.gd" type="Script" id=1]
-[ext_resource path="res://res/characters/character1_maud_small_face.png" type="Texture" id=2]
+[ext_resource path="res://res/characters/character1_maud.png" type="Texture" id=2]
 [ext_resource path="res://res/sounds/steps-grass.ogg" type="AudioStream" id=3]
 [ext_resource path="res://res/characters/sword_target.svg" type="Texture" id=4]
 [ext_resource path="res://res/props/sword_icon.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 123, 64, 123 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 64, 123 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 246, 64, 123 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 123, 64, 123 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 64, 123 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 246, 64, 123 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 123, 64, 123 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 123 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 246, 64, 123 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 123, 64, 123 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 123 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 246, 64, 123 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 20 ) ],
+"loop": true,
+"name": "walking_left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 23 ) ],
+"loop": true,
+"name": "walking_back",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 26 ) ],
+"loop": true,
+"name": "walking_face",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 29 ) ],
+"loop": true,
+"name": "walking_right",
+"speed": 5.0
+} ]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.06341
@@ -13,14 +96,18 @@ radius = 7.06341
 script = ExtResource( 1 )
 gold = 100
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -2.32053, 34.0632 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 18 )
+animation = "walking_right"
 offset = Vector2( 0, 64 )
 
 [node name="SwordTargetAxis" type="Node2D" parent="Sprite"]
 show_behind_parent = true
 position = Vector2( -0.347954, 78.1142 )
 rotation = 3.14159
+scale = Vector2( 2, 2 )
 
 [node name="SwordTarget" type="Area2D" parent="Sprite/SwordTargetAxis"]
 position = Vector2( 0.695892, -52.54 )
@@ -40,7 +127,7 @@ texture = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 0, 64 )
-polygon = PoolVector2Array( -8.94893, 21.4317, -7.78751, 29.1744, 4.91063, 29.3293, 6.07204, 21.1219, 5.68491, 8.11409, -8, 8 )
+polygon = PoolVector2Array( -12.8727, 20.5832, -13.2999, 28.9133, 4.00117, 29.3405, 5.92352, 21.4376, 2.50601, 8.62192, -10.096, 8.40833 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 15.9997, 45.3337 )

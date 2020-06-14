@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/character1_maud_small_left.png-489d9c695df339e5aaf2ef80045bf607.stex"
+path="res://.import/character1_maud.png-18dcb030398c2d4ba32b1c4ae1ec056c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/characters/character1_maud_small_left.png"
-dest_files=[ "res://.import/character1_maud_small_left.png-489d9c695df339e5aaf2ef80045bf607.stex" ]
+source_file="res://res/characters/character1_maud.png"
+dest_files=[ "res://.import/character1_maud.png-18dcb030398c2d4ba32b1c4ae1ec056c.stex" ]
 
 [params]
 

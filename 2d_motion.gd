@@ -148,24 +148,27 @@ func _physics_process(delta):
     if velocity == Vector2(0,0):
         $SoundEffects.stop()
         moving = false
+        $Sprite.stop()
+        $Sprite.frame = 1 # the second frame always correspond to the 'neutral' pose
         return
     
     moving = true
+    $Sprite.play()
     if not $SoundEffects.playing:
         $SoundEffects.play()
         
-    var sprite = $Sprite
+    
     if velocity.x > 0:
-        sprite.texture = load("res://res/characters/character1_maud_small_right.png")
+        $Sprite.animation = "walking_right"
         $Sprite/SwordTargetAxis.rotation = PI/2
     if velocity.x < 0:
-        sprite.texture = load("res://res/characters/character1_maud_small_left.png")
+        $Sprite.animation = "walking_left"
         $Sprite/SwordTargetAxis.rotation =  -PI/2
     if velocity.y < 0:
-        sprite.texture = load("res://res/characters/character1_maud_small_back.png")
+        $Sprite.animation = "walking_back"
         $Sprite/SwordTargetAxis.rotation = 0
     if velocity.y > 0:
-        sprite.texture = load("res://res/characters/character1_maud_small_face.png")
+        $Sprite.animation = "walking_face"
         $Sprite/SwordTargetAxis.rotation = PI
 
     velocity = move_and_slide(velocity)
