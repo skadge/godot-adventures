@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://res/props/props_bush_elouan_small.png" type="Texture" id=1]
 [ext_resource path="res://Bunny.tscn" type="PackedScene" id=2]
@@ -41,6 +41,9 @@
 [ext_resource path="res://res/characters/wiseman.gd" type="Script" id=39]
 [ext_resource path="res://res/characters/wiseman.tscn" type="PackedScene" id=40]
 [ext_resource path="res://res/characters/Hagrid.tscn" type="PackedScene" id=41]
+[ext_resource path="res://res/characters/king.tscn" type="PackedScene" id=42]
+[ext_resource path="res://res/characters/castle servant.tscn" type="PackedScene" id=43]
+[ext_resource path="res://res/characters/Queen.tscn" type="PackedScene" id=44]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 80, 64, 80, 64, 112, 0, 112 )
@@ -1135,6 +1138,12 @@ position = Vector2( 1027.05, 432.749 )
 [node name="Apple5" parent="Coins&Apples" instance=ExtResource( 35 )]
 position = Vector2( 1452.16, 699.349 )
 
+[node name="Apple8" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 1814.92, 177.091 )
+
+[node name="Apple9" parent="Coins&Apples" instance=ExtResource( 35 )]
+position = Vector2( 1756.03, 188.519 )
+
 [node name="Apple6" parent="Coins&Apples" instance=ExtResource( 35 )]
 position = Vector2( 1490.57, 717.157 )
 
@@ -1206,7 +1215,7 @@ tile_set = SubResource( 13 )
 cell_size = Vector2( 16, 16 )
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( 1179639, 30, 0, 1179645, 30, 0, 1245181, 30, 0, 1179648, 32, 0, 1179650, 30, 0, 1310708, 30, 0, 1310711, 32, 0, 1245190, 32, 0, 1376235, 30, 0, 1376240, 30, 0, 1376242, 32, 0, 1376250, 30, 0, 1376255, 30, 0, 1310722, 30, 0, 1310725, 32, 0, 1310728, 30, 0, 1441774, 30, 0, 1441784, 30, 0, 1441789, 30, 0, 1376263, 32, 0, 1507312, 32, 0, 1507316, 32, 0, 1441796, 30, 0, 1441802, 30, 0, 1572850, 30, 0, 1638388, 32, 0, 1638390, 32, 0, 1638398, 32, 0, 1572873, 30, 0, 1703929, 32, 0, 1638404, 32, 0, 1703937, 32, 0, 1703942, 30, 0, 1835003, 30, 0, 1900543, 30, 0, 1966074, 30, 0, 3145863, 29, 0, 3145872, 29, 0, 3211393, 31, 0, 3211406, 32, 0, 3342472, 31, 0, 3342484, 29, 0, 3407998, 31, 0, 3539079, 32, 0, 3604619, 29, 0, 3604628, 32, 0, 3670143, 29, 0, 3670168, 30, 0, 3670171, 30, 0, 3801209, 31, 0, 3866755, 29, 0, 3866759, 30, 0, 3866764, 31, 0, 3866768, 30, 0, 3932314, 31, 0, 3997840, 31, 0, 3997847, 30, 0, 4063354, 32, 0, 4063370, 30, 0, 4128894, 29, 0, 4128902, 31, 0, 4128915, 30, 0, 4194432, 31, 0, 4194445, 30, 0, 4259973, 30, 0, 4259978, 30, 0, 4325499, 31, 0, 4391056, 30, 0, 4456571, 32, 0, 4456594, 31, 0, 4522120, 30, 0, 4522126, 30, 0, 4522138, 29, 0, 4587657, 31, 0, 4653205, 29, 0, 4718717, 29, 0, 4718718, 29, 0, 4718722, 29, 0, 4718749, 31, 0, 4849786, 32, 0, 4915323, 31, 0, 4980882, 29, 0, 4980886, 31, 0, 4980892, 30, 0, 5046404, 29, 0, 5046411, 29, 0, 5111937, 31, 0, 5243006, 31, 0, 5243023, 31, 0, 5308552, 31, 0, 5308566, 31, 0 )
+tile_data = PoolIntArray( -393156, 29, 0, -327595, 29, 0, 1179639, 30, 0, 1179645, 30, 0, 1245181, 30, 0, 1179648, 32, 0, 1179650, 30, 0, 1310708, 30, 0, 1310711, 32, 0, 1245190, 32, 0, 1376235, 30, 0, 1376240, 30, 0, 1376242, 32, 0, 1376250, 30, 0, 1376255, 30, 0, 1310722, 30, 0, 1310725, 32, 0, 1310728, 30, 0, 1441774, 30, 0, 1441784, 30, 0, 1441789, 30, 0, 1376263, 32, 0, 1507312, 32, 0, 1507316, 32, 0, 1441796, 30, 0, 1441802, 30, 0, 1572850, 30, 0, 1638388, 32, 0, 1638390, 32, 0, 1638398, 32, 0, 1572873, 30, 0, 1703929, 32, 0, 1638404, 32, 0, 1703937, 32, 0, 1703942, 30, 0, 1835003, 30, 0, 1900543, 30, 0, 1966074, 30, 0, 3145863, 29, 0, 3145872, 29, 0, 3211393, 31, 0, 3211406, 32, 0, 3342472, 31, 0, 3342484, 29, 0, 3407998, 31, 0, 3539079, 32, 0, 3604619, 29, 0, 3604628, 32, 0, 3670143, 29, 0, 3670168, 30, 0, 3670171, 30, 0, 3801209, 31, 0, 3866755, 29, 0, 3866759, 30, 0, 3866764, 31, 0, 3866768, 30, 0, 3932314, 31, 0, 3997840, 31, 0, 3997847, 30, 0, 4063354, 32, 0, 4063370, 30, 0, 4128894, 29, 0, 4128902, 31, 0, 4128915, 30, 0, 4194432, 31, 0, 4194445, 30, 0, 4259973, 30, 0, 4259978, 30, 0, 4325499, 31, 0, 4391056, 30, 0, 4456571, 32, 0, 4456594, 31, 0, 4522120, 30, 0, 4522126, 30, 0, 4522138, 29, 0, 4587657, 31, 0, 4653205, 29, 0, 4718717, 29, 0, 4718718, 29, 0, 4718722, 29, 0, 4718749, 31, 0, 4849786, 32, 0, 4915323, 31, 0, 4980882, 29, 0, 4980886, 31, 0, 4980892, 30, 0, 5046404, 29, 0, 5046411, 29, 0, 5111937, 31, 0, 5243006, 31, 0, 5243023, 31, 0, 5308552, 31, 0, 5308566, 31, 0 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -1261,6 +1270,13 @@ position = Vector2( -0.000114322, 2.09734e-06 )
 [node name="Guard" parent="Items" instance=ExtResource( 8 )]
 position = Vector2( 1296, 293.333 )
 
+[node name="Queen" parent="Items" instance=ExtResource( 44 )]
+position = Vector2( 1528.42, 104.487 )
+
+[node name="king" parent="Items" instance=ExtResource( 42 )]
+position = Vector2( 1478.24, 82.0175 )
+scale = Vector2( 1.2, 1.2 )
+
 [node name="Aeronaut" parent="Items" instance=ExtResource( 15 )]
 position = Vector2( 1552, 1245.33 )
 script = ExtResource( 17 )
@@ -1277,7 +1293,8 @@ position = Vector2( 212.964, 72.7136 )
 script = ExtResource( 39 )
 
 [node name="Player" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 1223.36, 404.848 )
+position = Vector2( 1269.68, 56.4907 )
+gold = 0
 
 [node name="HotAirBalloon" parent="Items" instance=ExtResource( 16 )]
 position = Vector2( 1496, 1298.67 )
@@ -1295,6 +1312,9 @@ loop = false
 [node name="Hagrid" parent="Items/HagridPath/PathFollow2D" instance=ExtResource( 41 )]
 position = Vector2( -23.8738, -4.78528 )
 rotation = -1.59646
+
+[node name="castle servant" parent="Items" instance=ExtResource( 43 )]
+position = Vector2( 1123.41, -7.521 )
 
 [node name="bird" parent="." instance=ExtResource( 38 )]
 position = Vector2( 729.588, 859.18 )
