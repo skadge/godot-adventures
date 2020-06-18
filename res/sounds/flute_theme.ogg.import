@@ -11,5 +11,5 @@ dest_files=[ "res://.import/flute_theme.ogg-58979bb3e146fffaeafa04c9947f36cd.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

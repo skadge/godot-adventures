@@ -57,6 +57,20 @@ func _process(delta):
     if modulate.a == 0:
         hide()
 
+func play_flute():
+    
+    $Sprite.animation = "play_flute"
+    
+    active = false
+    
+    var prev_stream = $SoundEffects.stream
+    $SoundEffects.stream = load("res://res/sounds/flute_theme.ogg")
+    $SoundEffects.play()
+    yield($SoundEffects, "finished")
+    $SoundEffects.stream = prev_stream
+    
+    active = true
+    
     
 func attack():
     $Sprite/SwordTargetAxis.show()
@@ -152,13 +166,10 @@ func _physics_process(delta):
         $Sprite.stop()
         $Sprite.frame = 1 # the second frame always correspond to the 'neutral' pose
         return
-    
+
+               
     moving = true
-    $Sprite.play()
-    if not $SoundEffects.playing:
-        $SoundEffects.play()
-        
-    
+     
     if velocity.x > 0:
         $Sprite.animation = "walking_right"
         $Sprite/SwordTargetAxis.rotation = PI/2
@@ -171,6 +182,12 @@ func _physics_process(delta):
     if velocity.y > 0:
         $Sprite.animation = "walking_face"
         $Sprite/SwordTargetAxis.rotation = PI
+
+    $Sprite.play()
+    if not $SoundEffects.playing:
+        $SoundEffects.play()
+        
+
 
     velocity = move_and_slide(velocity)
     

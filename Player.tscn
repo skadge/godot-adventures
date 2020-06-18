@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://2d_motion.gd" type="Script" id=1]
 [ext_resource path="res://res/characters/character1_maud.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://res/characters/sword_target.svg" type="Texture" id=4]
 [ext_resource path="res://res/props/sword_icon.png" type="Texture" id=5]
 [ext_resource path="res://res/sounds/sword_hit.ogg" type="AudioStream" id=6]
+[ext_resource path="res://res/characters/character_playing_flute.png" type="Texture" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -88,6 +89,11 @@ animations = [ {
 "loop": true,
 "name": "walking_back",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "play_flute",
+"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=14]
@@ -101,7 +107,7 @@ gold = 100
 position = Vector2( -2.04448, -49.0246 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 13 )
-animation = "walking_right"
+animation = "play_flute"
 offset = Vector2( 0, 64 )
 
 [node name="SwordTargetAxis" type="Node2D" parent="Sprite"]

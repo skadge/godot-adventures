@@ -49,6 +49,7 @@ func _ready():
     
     #_on_HotAirBalloonAvailable()
     #_on_SwordAvailable()
+    _on_FluteAvailable()
     
 
 func resize_inventory_bg():
@@ -82,7 +83,15 @@ func _on_SwordAvailable():
     
     $SwordPanel.show()
 
-
+func _on_FluteAvailable():
+    
+    if not $Inventory.visible:
+        $Inventory.show()
+        
+    $Inventory/HBox/FluteButton.show()
+    
+    resize_inventory_bg()
+    
 func _on_PlayerButton_pressed():
     $Inventory/HBox/PlayerButton.hide()
     $Inventory/HBox/HotAirBalloonButton.show()
@@ -118,3 +127,7 @@ func on_msg(msg, display_duration=1):
         $AnimationPlayer.play("DisplayMainMsg")
 
 
+
+
+func _on_FluteButton_pressed():
+    player.play_flute()
