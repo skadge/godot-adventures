@@ -30,6 +30,7 @@ export(int) var gold = 0
 signal keys_tally_updated
 signal missing_key
 export(int) var keys = 0
+export(bool) var master_key_available = false
 
 signal sword_hit
 export(int) var sword_damage_per_hit = 2
@@ -205,6 +206,14 @@ func use_key():
     else:
         emit_signal("missing_key", "[center]You need a key to open this chest![/center]")
         return false
+
+func has_master_key():
+    if master_key_available:
+        return true
+    else:
+        emit_signal("missing_key", "[center]This looks like an uncommonly large chest...\nYou need a special key to open it[/center]")
+        return false
+
 
 func collect_gold(nb_gold=1):
     gold += nb_gold

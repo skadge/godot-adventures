@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://res/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Bunny.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://res/background.jpg" type="Texture" id=4]
 [ext_resource path="res://Interface.tscn" type="PackedScene" id=5]
 [ext_resource path="res://res/sounds/theme.ogg" type="AudioStream" id=6]
+[ext_resource path="res://res/props/MasterChest.tscn" type="PackedScene" id=7]
 [ext_resource path="res://res/characters/Guard.tscn" type="PackedScene" id=8]
 [ext_resource path="res://res/props/Coin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://General.gd" type="Script" id=13]
@@ -240,7 +241,7 @@ position = Vector2( 3602.92, 4589.24 )
 position = Vector2( 5130.17, 4359.13 )
 
 [node name="Chest3" parent="Keys&Chests" instance=ExtResource( 32 )]
-position = Vector2( 9482.25, 2813.64 )
+position = Vector2( 11434.7, 3921.81 )
 
 [node name="Chest4" parent="Keys&Chests" instance=ExtResource( 32 )]
 position = Vector2( 10830.3, 4726.17 )
@@ -436,11 +437,6 @@ position = Vector2( 2890.67, 1069.33 )
 "coins",
 ] instance=ExtResource( 12 )]
 position = Vector2( 2560, 949.333 )
-
-[node name="Coin40" parent="Coins&Apples" groups=[
-"coins",
-] instance=ExtResource( 12 )]
-position = Vector2( 2418.67, 792 )
 
 [node name="Coin41" parent="Coins&Apples" groups=[
 "coins",
@@ -773,8 +769,10 @@ position = Vector2( 173.513, 174.742 )
 script = ExtResource( 39 )
 
 [node name="Player" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 0.148285, 204.945 )
+position = Vector2( -0.966217, 201.386 )
+apple = 10
 gold = 0
+master_key_available = true
 
 [node name="HotAirBalloon" parent="Items" instance=ExtResource( 16 )]
 position = Vector2( 1496, 1298.67 )
@@ -799,6 +797,9 @@ rotation = -1.59646
 
 [node name="castle servant" parent="Items" instance=ExtResource( 43 )]
 position = Vector2( 1165.79, 118.727 )
+
+[node name="MasterChest" parent="Items" instance=ExtResource( 7 )]
+position = Vector2( 2211.02, 696.997 )
 
 [node name="bird" parent="." instance=ExtResource( 38 )]
 position = Vector2( 729.588, 859.18 )

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://res/props/Chest.tscn" type="PackedScene" id=1]
+[ext_resource path="res://res/props/large_chest.png" type="Texture" id=2]
+[ext_resource path="res://res/props/MasterChest.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 42.6476, 16.5587 )
+
+[node name="MasterChest" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( -0.435844, -45.5172 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 4.82936, -24.1468 )
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2( -0.47168, -16.8432 )
+shape = SubResource( 1 )
