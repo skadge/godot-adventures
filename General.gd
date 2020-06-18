@@ -27,6 +27,8 @@ func set_camera_limits():
 func _ready():
     set_camera_limits()
     
+    $AudioStreamPlayer.play()
+    
     $DialoguesLayer/Dialogues.hide()
     
     $background/DeepForest.connect("body_entered", $Items/Player, "_on_zone_entered", ["Deep forest"])
