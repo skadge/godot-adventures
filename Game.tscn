@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://res/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Bunny.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://res/sounds/theme.ogg" type="AudioStream" id=6]
 [ext_resource path="res://res/props/MasterChest.tscn" type="PackedScene" id=7]
 [ext_resource path="res://res/characters/Guard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://res/characters/Whale.tscn" type="PackedScene" id=9]
+[ext_resource path="res://res/characters/Mermaid.tscn" type="PackedScene" id=10]
 [ext_resource path="res://res/props/Coin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://General.gd" type="Script" id=13]
 [ext_resource path="res://res/interface/Dialogues.tscn" type="PackedScene" id=14]
@@ -20,7 +22,6 @@
 [ext_resource path="res://res/characters/Sorceress.gd" type="Script" id=22]
 [ext_resource path="res://res/characters/Sorceress.tscn" type="PackedScene" id=23]
 [ext_resource path="res://res/characters/Snowcat.tscn" type="PackedScene" id=25]
-[ext_resource path="res://res/characters/whale_small.png" type="Texture" id=27]
 [ext_resource path="res://res/props/castle.png" type="Texture" id=29]
 [ext_resource path="res://res/props/Key.tscn" type="PackedScene" id=31]
 [ext_resource path="res://res/props/Chest.tscn" type="PackedScene" id=32]
@@ -623,10 +624,6 @@ position = Vector2( 424, 349.333 )
 [node name="bunny" parent="Animals" instance=ExtResource( 2 )]
 position = Vector2( 245.333, 42.6667 )
 
-[node name="Sea creature" type="Sprite" parent="Animals"]
-position = Vector2( 165.867, 1050.67 )
-texture = ExtResource( 27 )
-
 [node name="Background - bushes" type="TileMap" parent="."]
 position = Vector2( 405.333, 272 )
 tile_set = ExtResource( 1 )
@@ -737,11 +734,11 @@ position = Vector2( 69.3593, 643.099 )
 [node name="Snowcat" parent="Items" instance=ExtResource( 25 )]
 position = Vector2( 2333.33, 105.333 )
 
-[node name="PathFollow2D" parent="Items/Snowcat/PathIdle" index="0"]
-position = Vector2( -0.000114322, 2.09734e-06 )
-
 [node name="Guard" parent="Items" instance=ExtResource( 8 )]
 position = Vector2( 1303.35, 372.259 )
+
+[node name="Whale" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( 49.6841, 1058.07 )
 
 [node name="CastleBoy" parent="Items" instance=ExtResource( 45 )]
 position = Vector2( 1105.53, 87.5581 )
@@ -767,6 +764,9 @@ position = Vector2( 1910.4, 1358.87 )
 [node name="wiseman" parent="Items" instance=ExtResource( 40 )]
 position = Vector2( 173.513, 174.742 )
 script = ExtResource( 39 )
+
+[node name="Mermaid" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( -156.472, 1424.85 )
 
 [node name="Player" parent="Items" instance=ExtResource( 3 )]
 position = Vector2( -0.966217, 201.386 )
@@ -842,3 +842,5 @@ volume_db = -13.492
 [connection signal="missing_key" from="Items/Player" to="GUILayer/Interface" method="on_msg"]
 
 [editable path="Items/Snowcat"]
+
+[editable path="Items/Whale"]
