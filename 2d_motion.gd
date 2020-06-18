@@ -61,6 +61,7 @@ func _process(delta):
 func attack():
     $Sprite/SwordTargetAxis.show()
     
+    $Sprite/SwordTargetAxis/SwordTarget/AudioStreamPlayer.play()
     $SwordTween.interpolate_property($Sprite/SwordTargetAxis, "modulate:a", 1, 0, 1)
     $SwordTween.start()
     

@@ -29,15 +29,27 @@ func _ready():
     player.connect("sword_hit", self, "hit")
     $Path2D/PathFollow2D/Area2D/Hit.modulate.a = 0
 
+func end_of_life():
+    get_parent().remove_child(self) 
+    
 func hit(damage):
     
     print("Monster hit!")
+    
     current_life -= damage
     energy_bar.scale.x = float(current_life) / life
     $Tween.interpolate_property($Path2D/PathFollow2D/Area2D/Hit, "modulate:a", 1, 0, 0.5)
     $Tween.start()
     if current_life <= 0:
-        get_parent().remove_child(self)     
+        
+        $Tween.interpolate_property(self, "modulate:a", 1,0,2)
+        $Tween.connect("tween_all_completed", self, "end_of_life")
+        $Tween.start()
+            
+        $Path2D/PathFollow2D/Area2D/AudioStreamHit.stream = load("res://res/sounds/monster_hit.ogg")
+        $Path2D/PathFollow2D/Area2D/AudioStreamHit.play()
+    else:
+        $Path2D/PathFollow2D/Area2D/AudioStreamHit.play()
     
 func path_following(delta):
     
