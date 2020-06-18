@@ -28,6 +28,7 @@ Button/styles/focus = null
 Button/styles/hover = null
 Button/styles/normal = null
 Button/styles/pressed = null
+HBoxContainer/constants/separation = 4
 Label/colors/font_color = Color( 0.141176, 0.109804, 0.0117647, 1 )
 Label/colors/font_color_shadow = Color( 0.929412, 0.776471, 0.0745098, 0.294118 )
 Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
