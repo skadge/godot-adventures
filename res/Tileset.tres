@@ -330,17 +330,11 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 26/tile_mode = 0
 26/occluder_offset = Vector2( 0, 0 )
 26/navigation_offset = Vector2( 0, 0 )
-26/shape_offset = Vector2( -32, -90 )
-26/shape_transform = Transform2D( 1, 0, 0, 1, -32, -90 )
+26/shape_offset = Vector2( 0, 0 )
+26/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 26/shape_one_way = false
-26/shape_one_way_margin = 1.0
-26/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": null,
-"shape_transform": Transform2D( 1, 0, 0, 1, -32, -90 )
-} ]
+26/shape_one_way_margin = 0.0
+26/shapes = [  ]
 26/z_index = 0
 27/name = "mountains3"
 27/texture = ExtResource( 9 )
@@ -350,17 +344,11 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 27/tile_mode = 0
 27/occluder_offset = Vector2( 0, 0 )
 27/navigation_offset = Vector2( 0, 0 )
-27/shape_offset = Vector2( -32, -48 )
-27/shape_transform = Transform2D( 1, 0, 0, 1, -32, -48 )
+27/shape_offset = Vector2( 0, 0 )
+27/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 27/shape_one_way = false
-27/shape_one_way_margin = 1.0
-27/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": null,
-"shape_transform": Transform2D( 1, 0, 0, 1, -32, -48 )
-} ]
+27/shape_one_way_margin = 0.0
+27/shapes = [  ]
 27/z_index = 0
 28/name = "mountains2"
 28/texture = ExtResource( 9 )
@@ -370,17 +358,11 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 28/tile_mode = 0
 28/occluder_offset = Vector2( 0, 0 )
 28/navigation_offset = Vector2( 0, 0 )
-28/shape_offset = Vector2( -64, -90 )
-28/shape_transform = Transform2D( 1, 0, 0, 1, -64, -90 )
+28/shape_offset = Vector2( 0, 0 )
+28/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 28/shape_one_way = false
-28/shape_one_way_margin = 1.0
-28/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": null,
-"shape_transform": Transform2D( 1, 0, 0, 1, -64, -90 )
-} ]
+28/shape_one_way_margin = 0.0
+28/shapes = [  ]
 28/z_index = 0
 29/name = "apple_tree"
 29/texture = ExtResource( 8 )
@@ -537,17 +519,11 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 36/tile_mode = 0
 36/occluder_offset = Vector2( 0, 0 )
 36/navigation_offset = Vector2( 0, 0 )
-36/shape_offset = Vector2( -64, -90 )
-36/shape_transform = Transform2D( 1, 0, 0, 1, -64, -90 )
+36/shape_offset = Vector2( 0, 0 )
+36/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 36/shape_one_way = false
-36/shape_one_way_margin = 1.0
-36/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": null,
-"shape_transform": Transform2D( 1, 0, 0, 1, -64, -90 )
-} ]
+36/shape_one_way_margin = 0.0
+36/shapes = [  ]
 36/z_index = 0
 37/name = "castle_walls"
 37/texture = ExtResource( 11 )
@@ -571,15 +547,9 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 38/tile_mode = 0
 38/occluder_offset = Vector2( 0, 0 )
 38/navigation_offset = Vector2( 0, 0 )
-38/shape_offset = Vector2( -48, -90 )
-38/shape_transform = Transform2D( 1, 0, 0, 1, -48, -90 )
+38/shape_offset = Vector2( 0, 0 )
+38/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 38/shape_one_way = false
-38/shape_one_way_margin = 1.0
-38/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": null,
-"shape_transform": Transform2D( 1, 0, 0, 1, -48, -90 )
-} ]
+38/shape_one_way_margin = 0.0
+38/shapes = [  ]
 38/z_index = 0
