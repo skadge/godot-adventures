@@ -825,6 +825,7 @@ volume_db = -13.492
 [connection signal="body_entered" from="background/Lava" to="background/Lava" method="_on_Lava_body_entered"]
 [connection signal="body_exited" from="background/Lava" to="background/Lava" method="_on_Lava_body_exited"]
 [connection signal="body_exited" from="background/DeepForest" to="Items/Player" method="_on_zone_exited" binds= [ "Deep forest" ]]
+[connection signal="fluteGiven" from="Items/CastleBoy" to="GUILayer/Interface" method="_on_fluteGiven"]
 [connection signal="hotAirBalloonAvailable" from="Items/Aeronaut" to="GUILayer/Interface" method="_on_HotAirBalloonAvailable"]
 [connection signal="body_entered" from="Items/Sorceress" to="Items/Sorceress" method="_on_Character_body_entered"]
 [connection signal="body_exited" from="Items/Sorceress" to="Items/Sorceress" method="_on_Character_body_exited"]

@@ -49,7 +49,7 @@ func _ready():
     
     #_on_HotAirBalloonAvailable()
     #_on_SwordAvailable()
-    _on_FluteAvailable()
+    #_on_FluteAvailable()
     
 
 func resize_inventory_bg():
@@ -80,11 +80,12 @@ func _on_HotAirBalloonAvailable():
 
 func _on_SwordAvailable():
     
-    
     $SwordPanel.show()
 
-func _on_FluteAvailable():
+
+func _on_fluteGiven():
     
+    on_msg("\n[center][color=blue][wave amp=50 freq=2]You receive a flute![/wave][/color]\n\nPress the icon to play a tune[/center]")
     if not $Inventory.visible:
         $Inventory.show()
         
@@ -117,7 +118,7 @@ func _on_zone_entered(body, zone):
         $AnimationPlayer.play("DisplayMainMsg")
 
 func _on_death():
-        $MainMsg/Label.bbcode_text = "[center][color=red][wave amp=50 freq=2]You fainted![/wave][/color][/center]\nThe Village elder took you back to the village, but you've lost your gold."
+        $MainMsg/Label.bbcode_text = "\n[center][color=red][wave amp=50 freq=2]You fainted![/wave][/color][/center]\nThe Village elder took you back to the village, but you've lost your gold."
         $AnimationPlayer.playback_speed = 0.5
         $AnimationPlayer.play("DisplayMainMsg")
 
@@ -131,3 +132,4 @@ func on_msg(msg, display_duration=1):
 
 func _on_FluteButton_pressed():
     player.play_flute()
+
