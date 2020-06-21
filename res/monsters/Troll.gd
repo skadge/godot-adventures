@@ -8,8 +8,9 @@ extends "res://res/monsters/Monster.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    damage = 10
-    speed_factor = 0.05
+    #damage = 10
+    #speed_factor = 0.05
+    pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

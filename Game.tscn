@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://res/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Bunny.tscn" type="PackedScene" id=2]
@@ -41,6 +41,16 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 121.43, 38.257 )
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1317.26, 0.530075, 28.4689, 12.2635, -28.4689, -12.2635, 1249.37, 12.3556, -2.6279, 25.403, 2.6279, -25.403, 1139.87, -97.3271, -26.717, 10.5116, 26.717, -10.5116, 1267.64, -108.183, 0, 0, 0, 0, 1324.42, -183.342, -7.8837, -34.1627, 7.8837, 34.1627, 1473.07, -79.7902, 24.0891, -5.69378, -24.0891, 5.69378, 1371.19, -81.4603, 0, 0, 0, 0, 1317.26, 0.530075 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1344.47, 127.617, 28.4689, 12.2635, -28.4689, -12.2635, 1215.03, 49.1187, -2.6279, 25.403, 2.6279, -25.403, 1163.26, -64.4539, -26.717, 10.5116, 26.717, -10.5116, 1293.43, -129.016, 0, 0, 0, 0, 1355.22, -59.7033, -7.8837, -34.1627, 7.8837, 34.1627, 1479.76, -31.0503, 24.0891, -5.69378, -24.0891, 5.69378, 1402.82, 58.0447, 0, 0, 0, 0, 1343.64, 127.617 )
+}
 
 [sub_resource type="Curve2D" id=2]
 _data = {
@@ -703,7 +713,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Monsters" type="Node2D" parent="Items"]
+[node name="Monsters" type="YSort" parent="Items"]
 position = Vector2( 96.4697, -29.3931 )
 
 [node name="BlackNightmare2" parent="Items/Monsters" instance=ExtResource( 19 )]
@@ -712,10 +722,12 @@ position = Vector2( 1883.34, 882.421 )
 [node name="BlackNightmare" parent="Items/Monsters" instance=ExtResource( 19 )]
 position = Vector2( 1925.04, 835.231 )
 rotation = -0.167552
+scale = Vector2( 1, 1 )
 
 [node name="BlackNightmare3" parent="Items/Monsters" instance=ExtResource( 19 )]
 position = Vector2( 1872.13, 906.894 )
 rotation = -0.167552
+scale = Vector2( 1, 1 )
 
 [node name="Spiky" parent="Items/Monsters" instance=ExtResource( 36 )]
 position = Vector2( 2259.13, 1273.29 )
@@ -742,7 +754,37 @@ position = Vector2( 2625.29, 1339.52 )
 position = Vector2( 2506.35, 1435.31 )
 
 [node name="Troll" parent="Items/Monsters" instance=ExtResource( 37 )]
-position = Vector2( 69.3593, 643.099 )
+position = Vector2( 86.0612, 616.376 )
+speed_factor = 0.06
+damage = 33
+
+[node name="PathFollow2D" parent="Items/Monsters/Troll/Path2D" index="0"]
+position = Vector2( 1279.47, 14.7666 )
+offset = 40.59
+
+[node name="Troll2" parent="Items/Monsters" instance=ExtResource( 37 )]
+position = Vector2( 552.402, 1051.61 )
+speed_factor = 0.05
+damage = 33
+
+[node name="Path2D" parent="Items/Monsters/Troll2" index="0"]
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" parent="Items/Monsters/Troll2/Path2D" index="0"]
+position = Vector2( 1457, -101.428 )
+offset = 620.64
+
+[node name="Troll3" parent="Items/Monsters" instance=ExtResource( 37 )]
+position = Vector2( 334.434, 914.346 )
+speed_factor = 0.07
+damage = 33
+
+[node name="Path2D" parent="Items/Monsters/Troll3" index="0"]
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" parent="Items/Monsters/Troll3/Path2D" index="0"]
+position = Vector2( 1255.95, 71.7224 )
+offset = 104.65
 
 [node name="Snowcat" parent="Items" instance=ExtResource( 25 )]
 position = Vector2( 2333.33, 105.333 )
@@ -783,10 +825,11 @@ position = Vector2( -156.472, 1424.85 )
 script = ExtResource( 11 )
 
 [node name="Player" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 2399.47, 666.792 )
+position = Vector2( 456.547, 294.904 )
 base_speed = 400
 gold = 0
 master_key_available = true
+golden_pineapple_available = true
 
 [node name="HotAirBalloon" parent="Items" instance=ExtResource( 16 )]
 position = Vector2( 1496, 1298.67 )
@@ -866,6 +909,12 @@ navpoly = SubResource( 3 )
 [connection signal="keys_tally_updated" from="Items/Player" to="GUILayer/Interface" method="_on_Player_keys_tally_updated"]
 [connection signal="master_key_obtained" from="Items/Player" to="GUILayer/Interface" method="_on_masterKeyObtained"]
 [connection signal="missing_key" from="Items/Player" to="GUILayer/Interface" method="on_msg"]
+
+[editable path="Items/Monsters/Troll"]
+
+[editable path="Items/Monsters/Troll2"]
+
+[editable path="Items/Monsters/Troll3"]
 
 [editable path="Items/Snowcat"]
 
