@@ -1,24 +1,13 @@
 extends Control
 
+onready var game = get_tree().root.get_node("Game")
+
 signal conversation_finished
 
-var strings_file
-var strings = {}
-
-func _init():
-    strings_file = File.new()
     
     
 func _ready():
-    
-    strings_file.open("res://chronicles_purdownia_translations.csv", File.READ)
-    
-    while not strings_file.eof_reached():
-        var line = strings_file.get_csv_line()
-        if line.size() > 1:
-            strings[line[0]] = line[1]
 
-    strings_file.close()
         
     hide_all_buttons()
 
@@ -74,12 +63,8 @@ func say_many(sprite, sentences):
 
 func set_text(text):
 
-    if strings.has(text):
-        text = strings[text]
-    else:
-        print("[MISSING STRING] " + text)
-        
-    $Box/RichTextLabel.bbcode_text = text
+
+    $Box/RichTextLabel.bbcode_text = game.translate(text)
     
 func say_yes_no(sprite, text, cb_object, on_yes, on_no):
     
