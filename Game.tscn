@@ -771,7 +771,7 @@ damage = 33
 curve = SubResource( 4 )
 
 [node name="PathFollow2D" parent="Items/Monsters/Troll2/Path2D" index="0"]
-position = Vector2( 1457, -101.428 )
+position = Vector2( 1462.94, -95.6593 )
 offset = 620.64
 
 [node name="Troll3" parent="Items/Monsters" instance=ExtResource( 37 )]
@@ -825,11 +825,12 @@ position = Vector2( -156.472, 1424.85 )
 script = ExtResource( 11 )
 
 [node name="Player" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( -3.3324, 214.402 )
+position = Vector2( 13.4867, 174.456 )
 gold = 0
 
 [node name="HotAirBalloon" parent="Items" instance=ExtResource( 16 )]
 position = Vector2( 1496, 1298.67 )
+z_index = 100
 
 [node name="HagridPath" type="Path2D" parent="Items"]
 position = Vector2( 0, 75.6667 )
