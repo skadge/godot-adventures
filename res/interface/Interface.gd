@@ -43,6 +43,7 @@ func _ready():
     $Inventory.hide()
     $Inventory/HBox/HotAirBalloonButton.hide()
     $Inventory/HBox/PlayerButton.hide()
+    $Inventory/HBox/FluteButton.hide()
     $Inventory/HBox/MasterKeyIcon.hide()
     $Inventory/HBox/GoldenPineappleIcon.hide()
     $SwordPanel.hide()
