@@ -51,7 +51,7 @@ func _ready():
     
     #_on_HotAirBalloonAvailable()
     #_on_SwordAvailable()
-    _on_fluteGiven()
+    #_on_fluteGiven()
     
 
 func resize_inventory_bg():
@@ -141,7 +141,7 @@ func _on_zone_entered(body, zone):
         $AnimationPlayer.play("DisplayMainMsg")
 
 func _on_death():
-        $MainMsg/Label.bbcode_text = "\n[center][color=red][wave amp=50 freq=2]You fainted![/wave][/color][/center]\nThe Village elder took you back to the village, but you've lost your gold."
+        $MainMsg/Label.bbcode_text = "\n[center][color=red][wave amp=50 freq=2]You fainted![/wave][/color][/center]\nThe Village elder took you back to the village, but you've lost some gold."
         $AnimationPlayer.playback_speed = 0.5
         $AnimationPlayer.play("DisplayMainMsg")
 

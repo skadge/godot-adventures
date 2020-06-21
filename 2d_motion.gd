@@ -270,7 +270,7 @@ func health_change(delta):
         position = start_position
         yield(root.get_node("Game/background/PineVillage"), "body_entered")
         health = 75
-        pay_out(gold)
+        pay_out(15)
         emit_signal("dead")
     
     if health > 100:
