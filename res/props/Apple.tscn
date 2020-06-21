@@ -8,4 +8,3 @@ script = ExtResource( 2 )
 
 [node name="AudioStreamPlayer" parent="." index="2"]
 stream = null
-[connection signal="body_entered" from="." to="." method="_on_Apple_body_entered"]
