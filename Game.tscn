@@ -46,6 +46,11 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1781.85, 143.759, 0, 0, 0, 0, 1778.23, 350.968, 0, 0, 0, 0, 1681.1, 360.681, 0, 0, 0, 0, 1550.51, 387.662, 0, 0, 0, 0, 1406.97, 448.099 )
 }
 
+[sub_resource type="NavigationPolygon" id=3]
+vertices = PoolVector2Array( 727.345, 1465.51, 868.288, 1519.84, 79.884, 1500.75, 458.671, 1220.33, 28.4982, 1417.06, 18.221, 734.367, 182.655, 840.075, 316.258, 1028 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 0, 2, 4 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 4, 7, 3 ) ]
+outlines = [ PoolVector2Array( 18.221, 734.367, 28.4982, 1417.06, 79.884, 1500.75, 868.288, 1519.84, 727.345, 1465.51, 458.671, 1220.33, 316.258, 1028, 182.655, 840.075 ) ]
+
 [node name="Game" type="Node2D"]
 scale = Vector2( 3, 3 )
 script = ExtResource( 13 )
@@ -812,6 +817,16 @@ visible = false
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -13.492
+
+[node name="WhalePath" type="Line2D" parent="."]
+points = PoolVector2Array( 257, 1140, 571, 1194 )
+width = 2.0
+default_color = Color( 0.666667, 0.0823529, 0.164706, 1 )
+
+[node name="WhaleNavigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="WhaleNavigation2D"]
+navpoly = SubResource( 3 )
 [connection signal="direction_btns_released" from="GUILayer/Interface" to="Items/Player" method="_on_release_direction_btns"]
 [connection signal="down" from="GUILayer/Interface" to="Items/Player" method="_on_down"]
 [connection signal="left" from="GUILayer/Interface" to="Items/Player" method="_on_left"]

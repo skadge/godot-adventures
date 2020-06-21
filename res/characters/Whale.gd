@@ -1,72 +1,149 @@
 extends "res://res/characters/Character.gd"
 
+onready var whale = $PathIdle/PathFollow2D/Area2D
+
 onready var sprite = $PathIdle/PathFollow2D/Area2D/Sprite
 onready var path_follower = $PathIdle/PathFollow2D
 
-var last_x
+onready var game_scale = root.get_node("Game").scale
 
-var idling = true
+onready var nav2d = root.get_node("Game/WhaleNavigation2D")
+
+var speed : int = 150
+
+enum State {IDLING, GOING_TO_PLAYER, GOING_TO_MERMAID, BRINGING_PLAYER_BACK, BACK_TO_IDLING}
+
+var state = State.IDLING
+
+var path = PoolVector2Array() setget set_path
+
+var last_x
 
 var direction = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    $PathMermaid/PathFollow2D/Sprite.hide()
+
     last_x = path_follower.position.x
     
-    #going_to_village()
+    going_to_player()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-    if idling:
-        $PathIdle/PathFollow2D.unit_offset += delta * 0.05
-    else:
-        $PathMermaid/PathFollow2D.unit_offset += delta * 0.1 * direction
+    var original_position = whale.global_position
+    
+    var move_distance : float = delta * speed
+    
+    if state == State.IDLING:
+        $PathIdle/PathFollow2D.offset += move_distance
         
-        if direction == 1:
-            player.position = position + path_follower.position
+        if path_follower.position.x > last_x:
+            sprite.set_flip_h(true)
+        if path_follower.position.x < last_x:
+            sprite.set_flip_h(false)
         
-        if $PathMermaid/PathFollow2D.unit_offset >= 0.98:
-            sprite.texture = load("res://res/characters/whale_small.png")   
-            player.show()
-            direction = -1
+        last_x = path_follower.position.x
+    
+    elif state == State.GOING_TO_PLAYER:
+        move_along_path(move_distance)
         
-        if $PathMermaid/PathFollow2D.unit_offset <= 0.02 and direction == -1:
+        # not moving anymore? we are at the beach!
+        if whale.global_position - original_position == Vector2(0,0):
             sprite.texture = load("res://res/characters/whale_small_character.png")
-            idling()
-            direction = 1
-        
-        
+            player.hide()
+            go_to($MermaidTarget)
+            state = State.GOING_TO_MERMAID
     
-    if path_follower.position.x > last_x:
-        sprite.set_flip_h(true)
-    if path_follower.position.x < last_x:
+    elif state == State.GOING_TO_MERMAID:
         sprite.set_flip_h(false)
+        move_along_path(move_distance)
+        
+        player.global_position = whale.global_position
+        
+        # not moving anymore? we are at the mermaid!
+        if whale.global_position - original_position == Vector2(0,0):
+            
+            go_to($BeachLanding)
+            state = State.BRINGING_PLAYER_BACK
     
-    last_x = path_follower.position.x
+    elif state == State.BRINGING_PLAYER_BACK:
+        sprite.set_flip_h(true)
+        move_along_path(move_distance)
+        
+        player.global_position = whale.global_position
+        
+        # not moving anymore? we are at the beach!
+        if whale.global_position - original_position == Vector2(0,0):
+            sprite.texture = load("res://res/characters/whale_small.png")
+            player.show()
+            
+            var pos = whale.global_position
+            $PathIdle/PathFollow2D.offset = 0
+            whale.global_position = pos
+            
+            go_to(self)
+            state = State.BACK_TO_IDLING
+            
+    elif state == State.BACK_TO_IDLING:
+        sprite.set_flip_h(false)
+        move_along_path(move_distance)
+        
+        # not moving anymore? we are at the start point of idling!
+        if whale.global_position - original_position == Vector2(0,0):
+            state = State.IDLING
+            
+    else:
+        print("SHOULD NOT HAPPEN!")
+        
+        
+    
 
-func going_to_mermaid():
-    
-    player.hide()
-    
-    path_follower = $PathMermaid/PathFollow2D
-    path_follower.position = Vector2(0,0)
-    
-    $PathIdle/PathFollow2D/Area2D.hide()
-    idling = false
-    sprite = $PathMermaid/PathFollow2D/Sprite
-    sprite.show()
 
+func going_to_player():
+    
+    go_to(player)
+    
+    state = State.GOING_TO_PLAYER
 
-func idling():
-    idling = true
-    $PathMermaid/PathFollow2D/Sprite.hide()
-    sprite = $PathIdle/PathFollow2D/Area2D/Sprite
-    path_follower = $PathIdle/PathFollow2D
+func go_to(object):
+    set_path(nav2d.get_simple_path(whale.global_position/game_scale, object.global_position/game_scale))
     
-    path_follower.position = Vector2(0,0)
+func set_path(value : PoolVector2Array) -> void:
+    #print(whale.global_position)
+    print(whale.global_position)
+    print(whale.global_position/game_scale)
+    print(whale.global_scale)
+    print(whale.global_transform)
+    print(whale.position)
+    #print(value)
+    path = value
     
-    $PathIdle/PathFollow2D/Area2D.show()
+    get_tree().root.get_node("Game/WhalePath").points = value
+    #get_tree().root.get_node("Game/WhalePath").points = [whale.global_position, player.global_position]
+    
+       
+func move_along_path(distance : float) -> void:
+    
+    var start_point = whale.global_position
+    
+    for i in range(path.size()):
+        var distance_to_next = start_point.distance_to(path[0] * game_scale)
+                    
+        if distance_to_next > 0.0 and distance <= distance_to_next and distance >= 0.0:
+            #print(whale.global_position)
+            whale.global_position = start_point.linear_interpolate(path[0] * game_scale, distance / distance_to_next)
+            #print(whale.global_position)
+            break
+        elif distance < 0.0:
+            whale.global_position = path[0] * game_scale
+            
+            break
+            
+        distance -= distance_to_next
+        start_point = path[0] * game_scale
+        path.remove(0)
+        
+
 
