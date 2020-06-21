@@ -825,11 +825,8 @@ position = Vector2( -156.472, 1424.85 )
 script = ExtResource( 11 )
 
 [node name="Player" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 456.547, 294.904 )
-base_speed = 400
+position = Vector2( -3.3324, 214.402 )
 gold = 0
-master_key_available = true
-golden_pineapple_available = true
 
 [node name="HotAirBalloon" parent="Items" instance=ExtResource( 16 )]
 position = Vector2( 1496, 1298.67 )
