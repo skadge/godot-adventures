@@ -30,10 +30,17 @@ export(int) var gold = 0
 signal keys_tally_updated
 signal missing_key
 export(int) var keys = 0
+signal master_key_obtained
 export(bool) var master_key_available = false
 
 signal sword_hit
 export(int) var sword_damage_per_hit = 2
+
+signal calling_whale
+var is_on_beach = false
+
+signal golden_pineapple_obtained
+export(bool) var golden_pineapple_available = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,6 +51,12 @@ func _ready():
     emit_signal("gold_increased", gold)
     emit_signal("health_changed", health)
     emit_signal("apple_collected", apple)
+    
+    # for debugging only
+    if master_key_available:
+        obtain_master_key()
+    if golden_pineapple_available:
+        obtain_golden_pineapple()
     
     hotAirBalloonButton.connect("pressed", self, "_deactivate")
     playerButton.connect("pressed", self, "_activate")
@@ -64,6 +77,9 @@ func play_flute():
     
     active = false
     
+    if is_on_beach:
+        emit_signal("calling_whale")
+        
     var prev_stream = $SoundEffects.stream
     $SoundEffects.stream = load("res://res/sounds/flute_theme.ogg")
     $SoundEffects.play()
@@ -214,6 +230,13 @@ func has_master_key():
         emit_signal("missing_key", "[center]This looks like an uncommonly large chest...\nYou need a special key to open it[/center]")
         return false
 
+func obtain_master_key():
+    master_key_available = true
+    emit_signal("master_key_obtained")
+
+func obtain_golden_pineapple():
+    golden_pineapple_available = true
+    emit_signal("golden_pineapple_obtained")
 
 func collect_gold(nb_gold=1):
     gold += nb_gold
@@ -275,3 +298,11 @@ func _on_zone_exited(body, zone):
     $BackgroundMusic.stop()
 
 
+
+
+func _on_Beach_body_entered(body):
+    is_on_beach = true
+
+
+func _on_Beach_body_exited(body):
+    is_on_beach = false

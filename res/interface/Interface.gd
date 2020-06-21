@@ -43,13 +43,15 @@ func _ready():
     $Inventory.hide()
     $Inventory/HBox/HotAirBalloonButton.hide()
     $Inventory/HBox/PlayerButton.hide()
+    $Inventory/HBox/MasterKeyIcon.hide()
+    $Inventory/HBox/GoldenPineappleIcon.hide()
     $SwordPanel.hide()
     
     $MainMsg.modulate.a = 0
     
     #_on_HotAirBalloonAvailable()
     #_on_SwordAvailable()
-    #_on_FluteAvailable()
+    _on_fluteGiven()
     
 
 func resize_inventory_bg():
@@ -92,7 +94,28 @@ func _on_fluteGiven():
     $Inventory/HBox/FluteButton.show()
     
     resize_inventory_bg()
+
+func _on_masterKeyObtained():
     
+    on_msg("\n[center][color=yellow][wave amp=50 freq=2]You obtain the master key![/wave][/color]\n[img]res://res/props/master_key.png[/img][/center]", 2)
+    if not $Inventory.visible:
+        $Inventory.show()
+        
+    $Inventory/HBox/MasterKeyIcon.show()
+    
+    resize_inventory_bg()
+
+func _on_pineappleObtained():
+    
+    on_msg("\n[center][color=blue][wave amp=50 freq=2]The chest contains a golden pineapple![/wave][/color]\n[img]res://res/props/pineapple.png[/img][/center]", 3)
+    if not $Inventory.visible:
+        $Inventory.show()
+        
+    $Inventory/HBox/GoldenPineappleIcon.show()
+    
+    resize_inventory_bg()
+    
+     
 func _on_PlayerButton_pressed():
     $Inventory/HBox/PlayerButton.hide()
     $Inventory/HBox/HotAirBalloonButton.show()

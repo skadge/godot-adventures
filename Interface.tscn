@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://res/interface/gold/GoldCounter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://res/interface/Interface.gd" type="Script" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://res/interface/left_arrow_pressed.svg" type="Texture" id=17]
 [ext_resource path="res://res/interface/right_arrow.svg" type="Texture" id=18]
 [ext_resource path="res://res/props/flute.png" type="Texture" id=19]
+[ext_resource path="res://res/props/master_key_icon.png" type="Texture" id=20]
+[ext_resource path="res://res/props/pineapple_icon.png" type="Texture" id=21]
 
 [sub_resource type="Animation" id=1]
 resource_name = "DisplayMainMsg"
@@ -165,6 +167,22 @@ rect_min_size = Vector2( 40, 0 )
 texture_normal = ExtResource( 19 )
 expand = true
 stretch_mode = 3
+
+[node name="MasterKeyIcon" type="TextureRect" parent="Inventory/HBox"]
+margin_left = 140.0
+margin_right = 180.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 40, 0 )
+texture = ExtResource( 20 )
+stretch_mode = 6
+
+[node name="GoldenPineappleIcon" type="TextureRect" parent="Inventory/HBox"]
+margin_left = 184.0
+margin_right = 224.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 40, 0 )
+texture = ExtResource( 21 )
+stretch_mode = 6
 
 [node name="MainMsg" type="NinePatchRect" parent="."]
 anchor_left = 0.5

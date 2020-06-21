@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://res/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Bunny.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://res/characters/Guard.tscn" type="PackedScene" id=8]
 [ext_resource path="res://res/characters/Whale.tscn" type="PackedScene" id=9]
 [ext_resource path="res://res/characters/Mermaid.tscn" type="PackedScene" id=10]
+[ext_resource path="res://res/characters/Mermaid.gd" type="Script" id=11]
 [ext_resource path="res://res/props/Coin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://General.gd" type="Script" id=13]
 [ext_resource path="res://res/interface/Dialogues.tscn" type="PackedScene" id=14]
@@ -202,6 +203,7 @@ polygon = PoolVector2Array( 2669.33, 77.3333, 2757.33, 82.6667, 2784, 69.3333, 2
 polygon = PoolVector2Array( 2853.33, 229.333, 2920, 232, 2906.67, 192, 2869.33, 192 )
 
 [node name="DeepForest" type="Area2D" parent="background"]
+visible = false
 __meta__ = {
 "_edit_lock_": true
 }
@@ -209,6 +211,12 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/DeepForest"]
 visible = false
 polygon = PoolVector2Array( 2358.54, 1551.45, 2319.58, 1447.23, 2330.29, 1329.38, 2392.63, 1249.51, 2358.54, 1180.35, 2427.69, 1081.01, 2558.21, 1048.86, 2694.57, 1034.25, 2808.53, 1060.55, 2862.1, 1128.73, 2959.5, 1199.83, 2969.24, 1545.61 )
+
+[node name="Beach" type="Area2D" parent="background"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/Beach"]
+polygon = PoolVector2Array( 914.046, 1383.73, 769.35, 1447.11, 599.542, 1297.63, 448.868, 1160.11, 380.706, 1075.21, 368.747, 998.674, 262.319, 894.636, 170.24, 763.095, 21.9568, 679.387, 20.761, 601.658, 166.652, 667.429, 332.872, 830.062, 418.972, 990.303, 507.464, 1111.08, 697.6, 1218.71 )
 
 [node name="Background items" type="TileMap" parent="."]
 position = Vector2( 405.333, 272 )
@@ -772,10 +780,11 @@ script = ExtResource( 39 )
 
 [node name="Mermaid" parent="Items" instance=ExtResource( 10 )]
 position = Vector2( -156.472, 1424.85 )
+script = ExtResource( 11 )
 
 [node name="Player" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( -0.966217, 201.386 )
-apple = 10
+position = Vector2( 2399.47, 666.792 )
+base_speed = 400
 gold = 0
 master_key_available = true
 
@@ -819,6 +828,7 @@ stream = ExtResource( 6 )
 volume_db = -13.492
 
 [node name="WhalePath" type="Line2D" parent="."]
+visible = false
 points = PoolVector2Array( 257, 1140, 571, 1194 )
 width = 2.0
 default_color = Color( 0.666667, 0.0823529, 0.164706, 1 )
@@ -841,15 +851,20 @@ navpoly = SubResource( 3 )
 [connection signal="body_entered" from="background/Lava" to="background/Lava" method="_on_Lava_body_entered"]
 [connection signal="body_exited" from="background/Lava" to="background/Lava" method="_on_Lava_body_exited"]
 [connection signal="body_exited" from="background/DeepForest" to="Items/Player" method="_on_zone_exited" binds= [ "Deep forest" ]]
+[connection signal="body_entered" from="background/Beach" to="Items/Player" method="_on_Beach_body_entered"]
+[connection signal="body_exited" from="background/Beach" to="Items/Player" method="_on_Beach_body_exited"]
 [connection signal="fluteGiven" from="Items/CastleBoy" to="GUILayer/Interface" method="_on_fluteGiven"]
 [connection signal="hotAirBalloonAvailable" from="Items/Aeronaut" to="GUILayer/Interface" method="_on_HotAirBalloonAvailable"]
 [connection signal="ride_to_village" from="Items/Sorceress" to="Items/Snowcat" method="going_to_village"]
 [connection signal="swordAvailable" from="Items/Blacksmith" to="GUILayer/Interface" method="_on_SwordAvailable"]
 [connection signal="apple_collected" from="Items/Player" to="GUILayer/Interface" method="_on_Player_apple_collected"]
+[connection signal="calling_whale" from="Items/Player" to="Items/Whale" method="going_to_player"]
 [connection signal="dead" from="Items/Player" to="GUILayer/Interface" method="_on_death"]
 [connection signal="gold_increased" from="Items/Player" to="GUILayer/Interface" method="_on_Player_gold_increased"]
+[connection signal="golden_pineapple_obtained" from="Items/Player" to="GUILayer/Interface" method="_on_pineappleObtained"]
 [connection signal="health_changed" from="Items/Player" to="GUILayer/Interface" method="_on_Player_health_changed"]
 [connection signal="keys_tally_updated" from="Items/Player" to="GUILayer/Interface" method="_on_Player_keys_tally_updated"]
+[connection signal="master_key_obtained" from="Items/Player" to="GUILayer/Interface" method="_on_masterKeyObtained"]
 [connection signal="missing_key" from="Items/Player" to="GUILayer/Interface" method="on_msg"]
 
 [editable path="Items/Snowcat"]

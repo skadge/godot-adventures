@@ -9,6 +9,8 @@ onready var game_scale = root.get_node("Game").scale
 
 onready var nav2d = root.get_node("Game/WhaleNavigation2D")
 
+onready var mermaid = root.get_node("Game/Items/Mermaid")
+
 var speed : int = 150
 
 enum State {IDLING, GOING_TO_PLAYER, GOING_TO_MERMAID, BRINGING_PLAYER_BACK, BACK_TO_IDLING}
@@ -26,7 +28,7 @@ func _ready():
 
     last_x = path_follower.position.x
     
-    going_to_player()
+    #going_to_player()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -65,8 +67,12 @@ func _process(delta):
         # not moving anymore? we are at the mermaid!
         if whale.global_position - original_position == Vector2(0,0):
             
-            go_to($BeachLanding)
-            state = State.BRINGING_PLAYER_BACK
+            if not mermaid.talking:
+                if not mermaid.key_given:
+                    mermaid.dialogue_stages()
+                else:
+                    go_to($BeachLanding)
+                    state = State.BRINGING_PLAYER_BACK
     
     elif state == State.BRINGING_PLAYER_BACK:
         sprite.set_flip_h(true)
