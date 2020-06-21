@@ -32,5 +32,6 @@ func _on_Lava_body_entered(body):
 
 
 func _on_Lava_body_exited(body):
-    onlava = false
+    if body.get_name() == "Player":
+        onlava = false
 

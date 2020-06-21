@@ -76,23 +76,23 @@ func get_input():
         velocity.y += 1
     if Input.is_action_pressed('up'):
         velocity.y -= 1
-    velocity = velocity.normalized() * speed
+    velocity = velocity.normalized()
 
 func _on_right():
     velocity.x = 1
-    velocity = velocity.normalized() * speed
+    velocity = velocity.normalized()
 
 func _on_left():
     velocity.x = -1
-    velocity = velocity.normalized() * speed
+    velocity = velocity.normalized()
 
 func _on_up():
     velocity.y = -1
-    velocity = velocity.normalized() * speed
+    velocity = velocity.normalized()
 
 func _on_down():
     velocity.y = 1
-    velocity = velocity.normalized() * speed
+    velocity = velocity.normalized()
 
 func _on_release_direction_btns():
     velocity = Vector2()
@@ -107,5 +107,5 @@ func _physics_process(delta):
         get_input()
     
 
-    velocity = move_and_slide(velocity)
+    move_and_slide(velocity * speed * delta * 50)
 

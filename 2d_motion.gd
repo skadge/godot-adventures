@@ -33,7 +33,6 @@ export(int) var keys = 0
 signal master_key_obtained
 export(bool) var master_key_available = false
 
-signal sword_hit
 export(int) var sword_damage_per_hit = 2
 
 signal calling_whale
@@ -67,7 +66,7 @@ func _ready():
     
     interface.connect("sword_pressed", self, "attack")
     
-func _process(delta):
+func _process(_delta):
     if modulate.a == 0:
         hide()
 
@@ -147,24 +146,24 @@ func get_input():
         velocity.y += 1
     if Input.is_action_pressed('up'):
         velocity.y -= 1
-    velocity = velocity.normalized() * speed
+    velocity = velocity.normalized()
 
 
 func _on_right():
     velocity.x = 1
-    velocity = velocity.normalized() * speed
+    velocity = velocity.normalized()
 
 func _on_left():
     velocity.x = -1
-    velocity = velocity.normalized() * speed
+    velocity = velocity.normalized()
 
 func _on_up():
     velocity.y = -1
-    velocity = velocity.normalized() * speed
+    velocity = velocity.normalized()
 
 func _on_down():
     velocity.y = 1
-    velocity = velocity.normalized() * speed
+    velocity = velocity.normalized()
 
 func _on_release_direction_btns():
     velocity = Vector2()
@@ -206,7 +205,7 @@ func _physics_process(delta):
         
 
 
-    velocity = move_and_slide(velocity)
+    move_and_slide(velocity * speed * delta * 50)
     
 
 
@@ -278,12 +277,12 @@ func health_change(delta):
         
     emit_signal("health_changed", health)
 
-func _on_path_entered(body):
+func _on_path_entered(_body):
     speed = base_speed * 1.5
     $SoundEffects.stream = load("res://res/sounds/steps-dirt.ogg")
 
 
-func _on_path_exited(body):
+func _on_path_exited(_body):
     speed = base_speed
     $SoundEffects.stream = load("res://res/sounds/steps-grass.ogg")
 
@@ -294,15 +293,15 @@ func _on_zone_entered(body, zone):
             $BackgroundMusic.stream = load("res://res/sounds/bird-singing3.ogg")
             $BackgroundMusic.play()
 
-func _on_zone_exited(body, zone):
+func _on_zone_exited(_body, _zone):
     $BackgroundMusic.stop()
 
 
 
 
-func _on_Beach_body_entered(body):
+func _on_Beach_body_entered(_body):
     is_on_beach = true
 
 
-func _on_Beach_body_exited(body):
+func _on_Beach_body_exited(_body):
     is_on_beach = false

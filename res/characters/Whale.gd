@@ -30,6 +30,8 @@ func _ready():
     
     #going_to_player()
 
+func connect_signals():
+    pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -134,7 +136,7 @@ func move_along_path(distance : float) -> void:
     
     var start_point = whale.global_position
     
-    for i in range(path.size()):
+    for _i in range(path.size()):
         var distance_to_next = start_point.distance_to(path[0] * game_scale)
                     
         if distance_to_next > 0.0 and distance <= distance_to_next and distance >= 0.0:

@@ -5,7 +5,7 @@ onready var path_follower = $PathIdle/PathFollow2D
 
 var last_x
 
-var idling = true
+var is_idling = true
 
 var direction = 1
 
@@ -16,11 +16,13 @@ func _ready():
     
     #going_to_village()
 
-
+func connect_signals():
+    pass
+    
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-    if idling:
+    if is_idling:
         $PathIdle/PathFollow2D.unit_offset += delta * 0.2
     else:
         $PathVillage/PathFollow2D.unit_offset += delta * 0.1 * direction
@@ -55,13 +57,13 @@ func going_to_village():
     path_follower.position = Vector2(0,0)
     
     $PathIdle/PathFollow2D/Area2D.hide()
-    idling = false
+    is_idling = false
     sprite = $PathVillage/PathFollow2D/Sprite
     sprite.show()
 
 
 func idling():
-    idling = true
+    is_idling = true
     $PathVillage/PathFollow2D/Sprite.hide()
     sprite = $PathIdle/PathFollow2D/Area2D/Sprite
     path_follower = $PathIdle/PathFollow2D

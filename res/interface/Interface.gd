@@ -50,7 +50,7 @@ func _ready():
     
     $MainMsg.modulate.a = 0
     
-    #_on_HotAirBalloonAvailable()
+    _on_HotAirBalloonAvailable()
     #_on_SwordAvailable()
     #_on_fluteGiven()
     

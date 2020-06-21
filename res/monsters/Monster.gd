@@ -26,17 +26,16 @@ func _ready():
     
     speed_factor = rng.randf_range(speed_factor * 0.5, speed_factor * 1.5)
     
-    player.connect("sword_hit", self, "hit")
     $Path2D/PathFollow2D/Area2D/Hit.modulate.a = 0
 
 func end_of_life():
     get_parent().remove_child(self) 
     
-func hit(damage):
+func hit(damage_taken):
     
     print("Monster hit!")
     
-    current_life -= damage
+    current_life -= damage_taken
     energy_bar.scale.x = float(current_life) / life
     $Tween.interpolate_property($Path2D/PathFollow2D/Area2D/Hit, "modulate:a", 1, 0, 0.5)
     $Tween.start()
