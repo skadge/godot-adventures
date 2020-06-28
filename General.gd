@@ -9,7 +9,8 @@ var strings_file
 var strings = {}
 
 func _init():
-    strings_file = File.new()
+    #strings_file = File.new()
+    pass
   
   
 # Called when the node enters the scene tree for the first time.
@@ -23,14 +24,14 @@ func _ready():
     $background/DeepForest.connect("body_entered", $Items/Player, "_on_zone_entered", ["Deep forest"])
     
         
-    strings_file.open("res://chronicles_purdownia_translations.csv", File.READ)
-    
-    while not strings_file.eof_reached():
-        var line = strings_file.get_csv_line()
-        if line.size() > 1:
-            strings[line[0]] = Array(line).slice(1, line.size())
-
-    strings_file.close()
+    #strings_file.open("res://chronicles_purdownia_translations.csv", File.READ)
+    #
+    #while not strings_file.eof_reached():
+    #    var line = strings_file.get_csv_line()
+    #    if line.size() > 1:
+    #        strings[line[0]] = Array(line).slice(1, line.size())
+    #
+    #strings_file.close()
     
 func _unhandled_input(event):
     if event is InputEventKey:
@@ -66,7 +67,7 @@ func translate(text):
     if strings.has(text) and strings[text].size() > idx + 1 and strings[text][idx] != "":
         return strings[text][CURRENT_LANGUAGE]
     else:
-        print("[MISSING STRING FOR " + Languages.keys()[CURRENT_LANGUAGE] + "] " + text)
+        #print("[MISSING STRING FOR " + Languages.keys()[CURRENT_LANGUAGE] + "] " + text)
         return text
         
     
